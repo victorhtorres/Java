@@ -121,9 +121,9 @@ Un programa que imprima en pantalla el clásico ejemplo de **Hola Mundo!** desde
 2. Sigue la siguiente ruta en Netbeans: Archivo - Nuevo proyecto - Categoría [java] - proyecto [Aplicación java] - Clic en siguiente - Coloque nombre al proyecto como "MiprimeraAppEnJava" - Clic en terminar.
 
 
-![Configuración de mi primera app en java](https://github.com/victorhtorres/ingenieria-informatica/blob/master/java/images/primeraapp1.png)
+![Configuración de mi primera app en java](images/primeraapp1.png)
 
-![Configuración de mi primera app en java](hhttps://github.com/victorhtorres/ingenieria-informatica/blob/master/java/images/primeraapp2.png)
+![Configuración de mi primera app en java](images/primeraapp2.png)
 
 ```java
 
@@ -144,7 +144,7 @@ public class MiPrimeraAppEnJava {
 
 Los resultados en pantalla:
 
-![Hola Mundo en java](https://github.com/victorhtorres/ingenieria-informatica/blob/master/java/images/primeraapp3.png)
+![Hola Mundo en java](images/primeraapp3.png)
 
 
 ## Comentar el codigo
@@ -190,7 +190,7 @@ También llamados Tipos de variable. Se llaman Tipos primitivos de variable de J
 
 La siguiente tabla muestra la cantidad de valores que puede almacenar cada tipo de variable:
 
-![Tipos de datos primitivos en java](https://github.com/victorhtorres/ingenieria-informatica/blob/master/java/images/tipos_datos_primitivos_java.png)
+![Tipos de datos primitivos en java](images/tipos_datos_primitivos_java.png)
 
 ## Variables
 Una variable es un nombre que contiene un valor que puede cambiar a lo largo del programa. De acuerdo con el tipo de información que contienen, en Java hay dos tipos principales de variable:
@@ -213,7 +213,7 @@ Son objetos en java de una determinada clase y no hacen parte del sistema operat
 
 Los nombres de variables en Java se pueden crear con mucha libertad. Pueden ser cualquier conjunto de caracteres numéricos y alfanuméricos, sin algunos caracteres especiales utilizados por Java como operadores o separadores (, . + - * / etc...), tampoco podrán ser nombradas con palabras reservadas por la aplicación (main, if, for, while, break, etc...). Estas son las palabras reservadas por el sistema y que no pueden usarse como nombre de variables:
 
-![Palabras reservadas en java](https://github.com/victorhtorres/ingenieria-informatica/blob/master/java/images/palabras_reservadas_java.png)
+![Palabras reservadas en java](images/palabras_reservadas_java.png)
 
 ## Operadores aritmeticos
 
@@ -253,7 +253,7 @@ Java dispone de otros operadores de asignación. Se trata de versiones abreviada
 
 **Tabla de operadores de asignación**
 
-![Operadores de asignación](https://github.com/victorhtorres/ingenieria-informatica/blob/master/java/images/operadores_asignacion_java.png)
+![Operadores de asignación](images/operadores_asignacion_java.png)
 
 ### Operadores de incremento y decremento
 
@@ -270,7 +270,7 @@ Los operadores relacionales sirven para realizar comparaciones de igualdad, desi
 
 ** Tabla de operadores relacionales **
 
-![Tabla de operadores relacionales](https://github.com/victorhtorres/ingenieria-informatica/blob/master/java/images/tabla_operadores_relacionales_java.png)
+![Tabla de operadores relacionales](images/tabla_operadores_relacionales_java.png)
 
 ### Operadores logicos
 
@@ -278,7 +278,7 @@ Los operadores lógicos se utilizan para construir expresiones lógicas, combina
 
 ** Tabla de operadores lógicos **
 
-![Tabla de peradores logicos en java](https://github.com/victorhtorres/ingenieria-informatica/blob/master/java/images/operadores_logicos_java.png)
+![Tabla de peradores logicos en java](images/operadores_logicos_java.png)
 
 
 ### Precedencia de operadores
@@ -288,7 +288,7 @@ El orden en que se realizan las operaciones es fundamental para determinar el re
 
 ** Tabla precedencia de operadores **
 
-![Tabla precedencia de operadores](https://github.com/victorhtorres/ingenieria-informatica/blob/master/java/images/precedencia_operadores_java.png)
+![Tabla precedencia de operadores](images/precedencia_operadores_java.png)
 
 
 ## Promocion de datos o casting
@@ -646,7 +646,7 @@ public class do_whileee {
 En Java, un arreglo es un grupo de variables (llamadas elementos o componentes) que contienen valores, todos del mismo tipo. Recuerde que los tipos en Java se dividen en dos categorías: tipos primitivos y tipos de referencia. Los arreglos son objetos, por lo que se consideran como tipos de referencia. Los
 elementos de un arreglo pueden ser tipos primitivos o de referencia (incluyendo arreglos). Para hacer referencia a un elemento específico en un arreglo, debemos especificar el nombre de la referencia al arreglo y el número de la posición del elemento en el arreglo. El número de la posición del elemento se conoce formalmente como el índice o subíndice del elemento.
 
-![Imagen representando a un arreglo unidimensional en java](https://github.com/victorhtorres/ingenieria-informatica/blob/master/java/images/arreglos_java.png)
+![Imagen representando a un arreglo unidimensional en java](images/arreglos_java.png)
 
 
 ### Arreglos unidimensionales
@@ -706,22 +706,22 @@ for (int i=0 ; i < nombres.length ; i++){
 
 Los arreglos multidimensionales de dos dimensiones se utilizan con frecuencia para representar tablas de valores, las cuales consisten en información ordenada en filas y columnas. Para identificar un elemento específico de una tabla, debemos especificar dos subíndices. Por convención, el primero identifica la fila del elemento y el segundo su columna. Los arreglos que requieren dos subíndices para identificar un elemento específico se llaman arreglos bidimensionales (los arreglos multidimensionales pueden tener más de dos dimensiones). Java no soporta los arreglos multidimensionales directamente, pero permite al programador especificar arreglos unidimensionales, cuyos elementos sean también arreglos unidimensionales, con lo cual se obtiene el mismo efecto.
 
-![Imagen ilustrativa de un arreglo bidimensional](https://github.com/victorhtorres/ingenieria-informatica/blob/master/java/images/arreglo_bidimensional_java.png)
+![Imagen ilustrativa de un arreglo bidimensional](images/arreglo_bidimensional_java.png)
 
 Ejemplos de declaracion de arreglos [sitanxis]:
 
-![Ejemplos de arreglos 1](https://github.com/victorhtorres/ingenieria-informatica/blob/master/java/images/ejemplos_arreglos_1.png)
+![Ejemplos de arreglos 1](images/ejemplos_arreglos_1.png)
 
 
-![Ejemplos de arreglos 2](https://github.com/victorhtorres/ingenieria-informatica/blob/master/java/images/ejemplos_arreglos_2.png)
+![Ejemplos de arreglos 2](images/ejemplos_arreglos_2.png)
 
 >Se permite que dentro de cada fila se tenga diferente número de columnas
 
 #### Acceso a un dato
 
-Para acceder a los diferentes elementos del arreglo, se realiza mediante el nombre del arreglo y su posición correspondiente escrita en [][], donde primero van las filas y luego la columna:
+Para acceder a los diferentes elementos del arreglo, se realiza mediante el nombre del arreglo y su posición correspondiente escrita en dos corchetes, donde primero van las filas y luego la columna:
 
-![Ejemplos de arreglos 3](https://github.com/victorhtorres/ingenieria-informatica/blob/master/java/images/ejemplos_arreglos_3.png)
+![Ejemplos de arreglos 3](images/ejemplos_arreglos_3.png)
 
 #### Recorrido
 
@@ -856,7 +856,7 @@ La programación orientada a objetos es un paradigma surgido en los años 70, qu
 
 ### Evolucion
 
-![Imagen de la evolución en los paradigmas de la programación](https://github.com/victorhtorres/ingenieria-informatica/blob/master/java/images/evolucion_poo.png)
+![Imagen de la evolución en los paradigmas de la programación](images/evolucion_poo.png)
 
 ## Clases
 
@@ -875,7 +875,7 @@ class Libro
 
 **Forma de una clase:**
 
-![Forma de una clase de manera grafica](https://github.com/victorhtorres/ingenieria-informatica/blob/master/java/images/forma_clase.png)
+![Forma de una clase de manera grafica](images/forma_clase.png)
 
 ## Objetos
 
@@ -923,7 +923,7 @@ Los dos pasos pueden llevarse a cabo en una sola instrucción así:
 
 Representación gráfica:
 
-![Representación gráfica de un objeto creado](https://github.com/victorhtorres/ingenieria-informatica/blob/master/java/images/objeto_java.png)
+![Representación gráfica de un objeto creado](images/objeto_java.png)
 
 
 ## Atributos
@@ -968,7 +968,7 @@ Parámetros: corresponde a un listado de declaración de variables separados por
 
 Ilustración gráfica de posibles métodos:
 
-![Representación gráfica sobre tipos de métodos](https://github.com/victorhtorres/ingenieria-informatica/blob/master/java/images/tipos_metodos.png)
+![Representación gráfica sobre tipos de métodos](images/tipos_metodos.png)
 
 **Consideraciones para la definición de Métodos:**
 
@@ -1053,7 +1053,7 @@ El ordenamiento por burbuja (Bubble sort), es conocido como “método de interc
 
 Descripción gráfica de como funciona el método burbuja:
 
-![Imagén método burbuja](https://github.com/victorhtorres/ingenieria-informatica/blob/master/java/images/ejemplo_metodo_burbuja.png)
+![Imagén método burbuja](images/ejemplo_metodo_burbuja.png)
 
 Sintaxis:
 
@@ -1082,7 +1082,7 @@ return a;
 
 Gráficamente:
 
-![Imagén método burbuja](https://github.com/victorhtorres/ingenieria-informatica/blob/master/java/images/ejemplo_metodo_burbuja2.png)
+![Imagén método burbuja](images/ejemplo_metodo_burbuja2.png)
 
 
 ## Sobrecarga de metodos
@@ -1147,7 +1147,7 @@ Si un objeto de una clase en particular quisiera hacer referencia a uno de sus m
 
 Ejemplo:
 
-![Ejemplo gráfico del apuntador this](https://github.com/victorhtorres/ingenieria-informatica/blob/master/java/images/apuntador_this.png)
+![Ejemplo gráfico del apuntador this](images/apuntador_this.png)
 
 
 ## Ambitos de variables
@@ -1162,7 +1162,7 @@ Ejemplo:
 
 Gráficamente:
 
-![Imágen ambitos de variables](https://github.com/victorhtorres/ingenieria-informatica/blob/master/java/images/ambito_variables.png)
+![Imágen ambitos de variables](images/ambito_variables.png)
 
 
 ## Paquetes
@@ -1177,7 +1177,7 @@ Sintaxis:
 
 Ejemplo:
 
-![Imagen paquetes en java](https://github.com/victorhtorres/ingenieria-informatica/blob/master/java/images/paquetes_java.png)
+![Imagen paquetes en java](images/paquetes_java.png)
 
 ## Modificadores de acceso
 
@@ -1225,7 +1225,7 @@ Cuando se declara métodos static solamente puede emplear variables static y lla
 
 Ejemplo:
 
-![Imagen gráfica de acceso static](https://github.com/victorhtorres/ingenieria-informatica/blob/master/java/images/ejemplo_static.png)
+![Imagen gráfica de acceso static](images/ejemplo_static.png)
 
 ### final
 
@@ -1255,13 +1255,13 @@ La herencia se estructura a través de clases, y se refleja en los objetos. Una 
 
 Ejemplo:
 
-![ejemplo gráfico de herencia](https://github.com/victorhtorres/ingenieria-informatica/blob/master/java/images/ejemplo_herencia.png)
+![ejemplo gráfico de herencia](images/ejemplo_herencia.png)
 
 En Java, se admite únicamente la herencia simple; es decir que, cada clase puede heredar a lo sumo de otra clase, y se hace mediante la cláusula extends al momento de declarar la clase.
 
 Ejemplo:
 
-![Ejemplo de herencia](https://github.com/victorhtorres/ingenieria-informatica/blob/master/java/images/ejemplo_herencia2.png)
+![Ejemplo de herencia](images/ejemplo_herencia2.png)
 
 ### Sobreescritura de metodos
 
@@ -1270,7 +1270,7 @@ totalidad del método heredado, en este caso se puede sobrescribir. La sobreescr
 
 Ejemplo:
 
-![Ejemplo sobreescritura de metodos](https://github.com/victorhtorres/ingenieria-informatica/blob/master/java/images/ejemplo_sobreescritura_metodos.png)
+![Ejemplo sobreescritura de metodos](images/ejemplo_sobreescritura_metodos.png)
 
 ## Apuntador super
 
@@ -1294,11 +1294,11 @@ Cuando el constructor de la subclase invoca el constructor de su superclase, est
 
 Ejemplo:
 
-![Ejemplo apuntador super](https://github.com/victorhtorres/ingenieria-informatica/blob/master/java/images/ejemplo_apuntador_super.png)
+![Ejemplo apuntador super](images/ejemplo_apuntador_super.png)
 
 Ejemplo 2:
 
-![Ejemplo 2 apuntador super](https://github.com/victorhtorres/ingenieria-informatica/blob/master/java/images/ejemplo_apuntador_super2.png)
+![Ejemplo 2 apuntador super](images/ejemplo_apuntador_super2.png)
 
 
 ## Clases abstractas
@@ -1309,7 +1309,7 @@ Debido a que una clase abstracta no ha sido definida completamente, no es posibl
 
 Ejemplo:
 
-![Ejemplo clase abstracta](https://github.com/victorhtorres/ingenieria-informatica/blob/master/java/images/ejemplo_clases_abstractas.png)
+![Ejemplo clase abstracta](images/ejemplo_clases_abstractas.png)
 
 
 ## Interfaces
@@ -1320,7 +1320,7 @@ sólo pueden tener atributos definidos como public final static. Una Interfaz se
 
 Ejemplo:
 
-![Ejemplo de interface](https://github.com/victorhtorres/ingenieria-informatica/blob/master/java/images/ejemplo_interfaces.png)
+![Ejemplo de interface](images/ejemplo_interfaces.png)
 
 ## Manejo de excepciones
 
