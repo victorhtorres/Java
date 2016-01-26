@@ -107,7 +107,7 @@ Para empezar a programar en Java, debemos de descargar el kid de desarrollador d
 
 NOTA: Busque esta opción:
 
-![Icono de paquete JDK y Netbeans](https://www.dropbox.com/s/o9t985upps9hore/icon-javaSE-with-NetBeans-download.png?dl=0)
+![Icono de paquete JDK y Netbeans](../images/icon-javaSE-with-NetBeans-download.png)
 
 Al descargar, ejecutar el archivo y dar siguiente, siguiente... hasta que salga la opción terminar y listo! Ya puede correr programas en Java.
 
