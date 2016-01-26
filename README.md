@@ -1,9 +1,8 @@
 # Java
 
-Java es un lenguaje de programación de propósito general, concurrente, orientado a objetos que fue diseñado específicamente para tener tan pocas dependencias de implementación como fuera posible. Su intención es permitir que los desarrolladores de aplicaciones escriban el programa una vez y lo ejecuten en cualquier dispositivo (conocido en inglés como WORA, o "write once, run anywhere"), lo que quiere decir que el código que es ejecutado en una plataforma no tiene que ser recompilado para correr en otra. Java es, a partir de 2012, uno de los lenguajes de programación más populares en uso, particularmente para aplicaciones de cliente-servidor de web, con unos 10 millones de usuarios reportados
+Fundamentos de Java
 
 ## Tabla de contenido
-- [Historia](#historia).
 - [Ambientes](#ambientes).
 - [Versiones](#versiones).
 - [Instalación JDK y Netbeans](#instalacion-jdk-y-netbeans).
@@ -77,11 +76,6 @@ Java es un lenguaje de programación de propósito general, concurrente, orienta
  - [Excepciones comunes](#excepciones-comunes).
  - [Atrapar excepciones con throws y throw](#atrapar-excepciones-con-throws-y-throw).
 
-
-
-## Historia
-
-La contribución más importante a la fecha, por parte de la revolución del microprocesador, es que hizo posible el desarrollo de las computadoras personales, que ahora suman miles de millones a nivel mundial. Las computadoras personales han tenido un profundo impacto en la vida de las personas, y en la manera en que las empresas realizan y administran su negocio. Los microprocesadores están teniendo un profundo impacto en los dispositivos electrónicos inteligentes para uso doméstico. Al reconocer esto, Sun Microsystems patrocinó en 1991 un proyecto interno de investigación denominado Green, el cual desembocó en el desarrollo de un lenguaje basado en C++ al que su creador, James Gosling, llamó Oak debido a un roble que tenía a la vista desde su ventana en las oficinas de Sun. Posteriormente se descubrió que ya existía un lenguaje de computadora con el mismo nombre. Cuando un grupo de gente de Sun visitó una cafetería local, sugirieron el nombre Java (una variedad de café) y así se quedó. Pero el proyecto Green tuvo algunas dificultades. El mercado para los dispositivos electrónicos inteligentes de uso doméstico no se desarrollaba tan rápido a principios de los noventa como Sun había anticipado. El proyecto corría el riesgo de cancelarse. Pero para su buena fortuna, la popularidad de World Wide Web explotó en 1993 y la gente de Sun se dio cuenta inmediatamente del potencial de Java para agregar contenido dinámico, como interactividad y animaciones, a las páginas Web. Esto trajo nueva vida al proyecto. Sun anunció formalmente a Java en una importante conferencia que tuvo lugar en mayo de 1995. Java generó la atención de la comunidad de negocios debido al fenomenal interés en World Wide Web. En la actualidad, Java se utiliza para desarrollar aplicaciones empresariales a gran escala, para mejorar la funcionalidad de los servidores Web (las computadoras que proporcionan el contenido que vemos en nuestros exploradores Web), para proporcionar aplicaciones para los dispositivos domésticos (como teléfonos celulares, radiolocalizadores y asistentes digitales personales) y para muchos otros propósitos.
 
 ## Ambientes
 
