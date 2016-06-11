@@ -28,6 +28,7 @@ Fundamentos de Java
  - [Estructura del switch](#estructura-del-switch).
 - [Estructuras de repetición](#estructuras-de-repeticion).
  - [Estructura for](#estructura-for).
+ - [Estructura for each](#estructura-for-each).
  - [Estructura while](#estructura-while).
  - [Estructura-do-while](#estructura-do-while).
 - [Arreglos](#arreglos).
@@ -515,6 +516,36 @@ i= 4	j= 8
 */
 
 ```
+
+### Estructura for each
+
+Sintaxis:
+
+```java
+
+for (<Tipo> elemento : Collection){
+      //TODO: Bock code here...
+      // la variable temporal elemento, contiene cada dato de la colección a iterar.
+    }
+
+```
+
+Ejemplo:
+
+```java
+
+    String[] arreglo = new String[3];
+    arreglo[0] = "Victor";
+    arreglo[1] = "Jaime";
+    arreglo[2] = "Harry";
+    
+    for (String elemento : arreglo){
+      System.out.println(elemento);
+    }
+
+```
+
+
 
 ### Estructura while
 
