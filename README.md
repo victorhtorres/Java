@@ -1421,6 +1421,18 @@ catch (NumberFormatException ex) {
 
 ```
 
+A partir de la versión java SE 7 en adelante, se puede crear un bloque catch con varias excepciones. Ejemplo:
+
+```java
+
+try {
+
+} catch (IOException | SQLException ex e) {
+    System.err.println("IndexOutOfBoundsException: " + e.getMessage());
+}
+
+```
+
 ### Excepciones comunes
 
 - ArithmeticException.
