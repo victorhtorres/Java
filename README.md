@@ -47,6 +47,7 @@ Fundamentos de Java
 - [Atributos](#atributos).
 - [Métodos](#metodos).
  - [Setter y getter](#setter-y-getter).
+ - [toString](#toString).
 - [Constructores](#constructores).
  - [Ordenamiento de datos](#ordenamiento-de-datos).
   - [Método Burbuja](#metodo-burbuja).
@@ -1040,6 +1041,62 @@ public double getRadio () { // Devuelve el valor del atributo radio
 ```
 
 >El uso del set y get es más de una buena practica de la programación, porque igual, funcionaria sin ponerle set y get al principio del nombre del método, pero al utilizarlo, el código será mas claro a la hora de realizarle alguna actualización.
+
+## toString
+
+El método toString de un objeto, retorna la representación de un objeto en formato cadena, pero este método hace parte de la clase padre Object, la cual, se llama en forma **implícita** cuando el objeto se utiliza en donde se espera un objeto String (por ejemplo, cuando printf imprime en pantalla el objeto como un String, usando el especificador de formato %s, o cuando el objeto se concatena con un objeto String mediante el operador +). Pero además, el método toString se puede llamar de manera **explícita**,  sobreescribir dicho método de la clase Object, en otra clase cualquiera y así darle el formato deseado a la representación del objeto de dicha clase.
+
+Ejemplo utilizando los atributos comunes de una clase llamada Persona:
+
+```java
+
+
+public class Persona {
+  
+  private String nombre;
+  private int edad;
+  private String id;
+
+  public Persona(String nombre, int edad, String id) {
+    this.nombre = nombre;
+    this.edad = edad;
+    this.id = id;
+  }
+  
+
+  public String getNombre() {
+    return nombre;
+  }
+
+  public void setNombre(String nombre) {
+    this.nombre = nombre;
+  }
+  
+  public int getEdad() {
+    return edad;
+  }
+
+  public void setEdad(int edad) {
+    this.edad = edad;
+  }
+
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+  
+  @Override // Esto indica que una declaración de método está destinado a anular una declaración de método en una superclase.
+  public String toString(){
+    return "Nombre: " + nombre + "\nEdad: " + edad + "\nId: " + id;
+  }
+
+}
+
+```
+
 
 ## Constructores
 
