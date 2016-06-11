@@ -47,7 +47,7 @@ Fundamentos de Java
 - [Atributos](#atributos).
 - [Métodos](#metodos).
  - [Setter y getter](#setter-y-getter).
- - [toString](#toString).
+ - [toString](#tostring).
 - [Constructores](#constructores).
  - [Ordenamiento de datos](#ordenamiento-de-datos).
   - [Método Burbuja](#metodo-burbuja).
