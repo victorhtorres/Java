@@ -1447,9 +1447,9 @@ try {
 
 Con las palabras claves `throws` y `throw`.
 
-throws sirve para indicar que en caso de que se produzca una excepción, el método en el que se produce la misma, no la  manejará, sino que la excepcion sera manejada por un método  invocante o superior.
+throws sirve para indicar que en caso de que se produzca una excepción, el método en el que se produce la misma, no la  manejará, sino que la excepcion sera manejada por un método  invocante o superior. En otras palabras, sirve para decirle al que lo invoque que este método puede lanzar una excepción del tipo especificado (pueden especificar varias excepciones separandolas con comas).
 
-Esto hace necesario y obligatorio que esta palabra clave se  use en conjunto con throw, ya que si el método en el que se produce la excepción no tratará la misma, se la debe lanzar (throw)  a un metodo superior.
+Se puede utilizar en conjunto junto con la palabra clave throw, para lanzar de manera explícita, una excepción.
 
 Ejemplo:
 
