@@ -70,6 +70,7 @@ Fundamentos de Java
 - [Herencia](#herencia).
  - [Sobreescritura de métodos](#sobreescritura-de-metodos).
  - [Apuntador super](#apuntador-super).
+- [Abstracción](#abstraccion).
 - [Clases abstractas](#clases-abstractas).
 - [Interfaces](#interfaces).
 - [Manejo de excepciones](#manejo-de-excepciones).
