@@ -72,6 +72,7 @@ Fundamentos de Java
  - [Apuntador super](#apuntador-super).
 - [Abstracción](#abstraccion).
 - [Clases abstractas](#clases-abstractas).
+- [Polimorfismo](#polimorfismo).
 - [Interfaces](#interfaces).
 - [Manejo de excepciones](#manejo-de-excepciones).
  - [Clases de excepciones](#clases-de-excepciones).
@@ -1406,6 +1407,13 @@ Debido a que una clase abstracta no ha sido definida completamente, no es posibl
 Ejemplo:
 
 ![Ejemplo clase abstracta](images/ejemplo_clases_abstractas.png)
+
+
+## Polimorfismo
+
+El polimorfismo nos permite programar de forma general, en vez de programar en forma especifica. En particular, nos permite escribir programas que procesen objetos que compartan la misma superclase (ya sea de manera directa o indirecta) como si todos fueran objetos de la superclase; esto puede simplificar la programación. 
+
+Con el polimorfismo podemos diseñar e implementar sistemas que puedan extenderse con facilidad; pueden agregarse nuevas clases con sólo modificar un poco (o nada) las porciones generales del programa siempre y cuando las nuevas clases sean parte de la jerarquía de herencia que el programa procesa en forma genérica.
 
 
 ## Interfaces
