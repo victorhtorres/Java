@@ -69,7 +69,7 @@ Fundamentos de Java
  - [final](#final).
 - [Herencia](#herencia).
  - [Sobreescritura de métodos](#sobreescritura-de-metodos).
-- [Apuntador super](#apuntador-super).
+ - [Apuntador super](#apuntador-super).
 - [Clases abstractas](#clases-abstractas).
 - [Interfaces](#interfaces).
 - [Manejo de excepciones](#manejo-de-excepciones).
@@ -1360,7 +1360,7 @@ Ejemplo:
 
 ![Ejemplo sobreescritura de metodos](images/ejemplo_sobreescritura_metodos.png)
 
-## Apuntador super
+### Apuntador super
 
 Si dentro de una clase se requiere llamar a un método existente en el padre se puede hacer referencia al padre con
 la palabra super, la cual puede entenderse como una variable que apunta a la clase Padre.
@@ -1389,7 +1389,14 @@ Ejemplo 2:
 ![Ejemplo 2 apuntador super](images/ejemplo_apuntador_super2.png)
 
 
-## Clases abstractas
+## Abstraccion
+
+La abstracción sirve para la gestión de clases complejas, en el sentido de que, existe una herencia la cual dicha clase padre puede ser tan amplia, tan compleja en sus clases hijas, que sería imposible tratar esa clase padre como una sola. Un ejemplo, para entender esto sería el reino Animal. Si tenemos una clase padre llamada Animal y un correspondiente de clases hijas como Ave, Pez, Perro, Gato, etc... Pues pensar que la clase Animal tenga implementado métodos acerca de cómo nacen, crecen, se reproducen o mueren cada especie animal, sería imposible contemplar dicha idea porque cada espécimen tiene una forma de vida distinta, pero si hay características en común, como por ejemplo, todos los animales tienen un nombre o una edad, la cual se pueden declarar desde la clase padre abstracta, pero sin implementarlo, esto con el fin de hacer uso del polimorfismo en la POO.
+
+Las clases y los métodos se pueden declarar como abstracto.
+
+
+### Clases abstractas
 
 En Java, una clase abstracta es aquella que tiene al menos un método abstracto. Un método abstracto es un método para el que solamente se ha definido el encabezado (signatura) pero no se ha implementado.
 
