@@ -1425,7 +1425,7 @@ Cuando queramos crear un objeto de cada clase, lo normal sería crear e instanci
 Perro obj = new Perro(); // hemos creado e instanciado un objeto de tipo Perro.
 Ave obj2 = new Ave();  // hemos creado e instanciado un objeto de tipo Ave.
 obj.mover(); // hacemos uso del método mover de la clase Perro, que hereda de Animal.
-obj2.mover(); hacemos uso del método mover de la clase Ave, que hereda de Animal.
+obj2.mover(); // hacemos uso del método mover de la clase Ave, que hereda de Animal.
 ```
 
 Ahora, usando el polimorfismo no tendríamos necesidad de crear un objeto por cada clase, sino que, con un objeto que sea de tipo de la superclase se crea de un tipo de una clase hija, podría hacer uso de los métodos de dicha clase hija, ya que un objeto de una subclase es un objeto de su superclase (pero no viceversa).
