@@ -1147,31 +1147,67 @@ La siguiente tabla resume los especificadores de formato de java:
 
 **Impresión de fechas y horas**
 
-| Carácter de conversión | Descripción|
+El carácter de conversión t o T, se utiliza para imprimir fechas y horas en diversos formatos. Siempre va seguido de un carácter de sufijo de conversión que especifica el formato de fecha y/o de hora. Cuando se utiliza el carácter de conversión T, las salidas se muestran en mayúsculas.
+
+El carácter de conversión t requiere que su correspondiente argumento sea una fecha u hora de tipo long, Long, Calendar (paquete java.util) o Date (paquete java.util); los objetos de cada una de estas clases pueden representar fechas y horas. La Calendar es la más recomendada, ya que ciertos constructores y métodos de la clase Date se sustituyen por la clase Calendar.
+
+| Carácter de sufijo de conversión | Descripción|
 |------------------------|------------|
-| tc o Tc                | Muestra la fecha y hora con el formato dia mes fecha hora:minuto:segundo zona-horaria año|
-| tF                     | Muestra la fecha con el formato año-mes-dia con cuatro dígitos para el año y dos dígitos para el mes y la fecha (por ejemplo , 2016-07-16)|
-| tD                     | Muestra la fecha con el formato mes/dia/año, con dos dígitos para el mes, día y año (por ejemplo, 06/07/16)|
-| tr                     | Muestra la hora en formato de 12 horas como hora:minuto:segundo AM|PM, con dos dígitos para la hora, minuto y segundo (por ejemplo, 06:30:25 PM).|
-| tR                     | Muestra la hora con el formato hora:minuto, con dos dígitos para la hora y minuto (por ejemplo, 16:50). Se utiliza el reloj 24 horas.|
-| tT                     | Muestra la hora con el formato hora:minuto:segundo, con dos dígitos para la hora, minuto y segundo (por ejemplo, 16:30:25). Se utiliza el reloj de 24 horas.|
-| tA                     | Muestra el nombre completo del día de la semana.|
-| ta                     | Muestra el nombre corto de tres caracteres del día de la semana.|
-| tB                     | Muestra el nombre completo del mes|
-| tb                     | Muestra el nombre corto de tres caracteres del mes.|
-| td                     | Muestra el día del mes con dos dígitos, rellenando con ceros a la izquierda si es necesario.|
-| tm                     | Muestra el mes con dos dígitos, rellenando con ceros a la izquierda si es necesario|
-| tH                     | Muestra la hora en el reloj de 24 horas, con un cero a la izquierda si es necesario|
-| tI                     | Muestra la hora en el reloj de 12 horas, con un cero a la izquierda si es necesario|
-| tk                     | Muestra la hora en el reloj de 24 horas sin ceros a la izquierda|
-| tl                     | Muestra la hora en el reloj de 12 horas sin ceros a la izquierda|
-| tM                     | Muestra los minutos con un cero a la izquierda, si es necesario|
-| tS                     | Muestra los segundos con un cero a la izquierda, si es necesario|
-| tZ                     | Muestra la abreviación para la zona horaria|
-| tp                     | Muestra el marcador de mañana o tarde en minúscula (pm)|
-| tP                     | Muestra el marcador de mañana o tarde en mayúscula (PM)|
+| c                | Muestra la fecha y hora con el formato dia mes fecha hora:minuto:segundo zona-horaria año|
+| F                     | Muestra la fecha con el formato año-mes-dia con cuatro dígitos para el año y dos dígitos para el mes y la fecha (por ejemplo , 2016-07-16)|
+| D                     | Muestra la fecha con el formato mes/dia/año, con dos dígitos para el mes, día y año (por ejemplo, 06/07/16)|
+| r                     | Muestra la hora en formato de 12 horas como hora:minuto:segundo AM|PM, con dos dígitos para la hora, minuto y segundo (por ejemplo, 06:30:25 PM).|
+| R                     | Muestra la hora con el formato hora:minuto, con dos dígitos para la hora y minuto (por ejemplo, 16:50). Se utiliza el reloj 24 horas.|
+| T                     | Muestra la hora con el formato hora:minuto:segundo, con dos dígitos para la hora, minuto y segundo (por ejemplo, 16:30:25). Se utiliza el reloj de 24 horas.|
+| A                     | Muestra el nombre completo del día de la semana.|
+| a                     | Muestra el nombre corto de tres caracteres del día de la semana.|
+| B                     | Muestra el nombre completo del mes|
+| b                     | Muestra el nombre corto de tres caracteres del mes.|
+| d                     | Muestra el día del mes con dos dígitos, rellenando con ceros a la izquierda si es necesario.|
+| m                     | Muestra el mes con dos dígitos, rellenando con ceros a la izquierda si es necesario|
+| H                     | Muestra la hora en el reloj de 24 horas, con un cero a la izquierda si es necesario|
+| I                     | Muestra la hora en el reloj de 12 horas, con un cero a la izquierda si es necesario|
+| k                     | Muestra la hora en el reloj de 24 horas sin ceros a la izquierda|
+| l                     | Muestra la hora en el reloj de 12 horas sin ceros a la izquierda|
+| M                     | Muestra los minutos con un cero a la izquierda, si es necesario|
+| S                     | Muestra los segundos con un cero a la izquierda, si es necesario|
+| Z                     | Muestra la abreviación para la zona horaria|
+| p                     | Muestra el marcador de mañana o tarde en minúscula (pm)|
+| P                     | Muestra el marcador de mañana o tarde en mayúscula (PM)|
 
 
+Ejemplo de impresión con fechas y horas:
+
+```java
+
+import java.util.Calendar;
+
+public class PruebaFechaHora
+{
+   public static void main( String[] args ) 
+   {
+      // obtiene la fecha y hora actuales
+      Calendar fechaHora = Calendar.getInstance();
+
+      // impresión con caracteres de conversión para composiciones de fecha/hora
+      System.out.printf( "%tc\n", fechaHora );
+      System.out.printf( "%tF\n", fechaHora );
+      System.out.printf( "%tD\n", fechaHora );
+      System.out.printf( "%tr\n", fechaHora );
+      System.out.printf( "%tT\n", fechaHora );
+
+      // impresión con caracteres de conversión para fechas
+      System.out.printf( "%1$tA, %1$tB %1$td, %1$tY\n", fechaHora );
+      System.out.printf( "%1$TA, %1$TB %1$Td, %1$TY\n", fechaHora );
+      System.out.printf( "%1$ta, %1$tb %1$te, %1$ty\n", fechaHora );
+
+      // impresión con caracteres de conversión para horas
+      System.out.printf( "%1$tH:%1$tM:%1$tS\n", fechaHora );
+      System.out.printf( "%1$tZ %1$tI:%1$tM:%1$tS %Tp", fechaHora );
+   } // fin de main
+} // fin de la clase PruebaFechaHora
+
+```
 
 ## Constructores
 
