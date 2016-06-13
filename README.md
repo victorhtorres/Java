@@ -48,6 +48,7 @@ Fundamentos de Java
 - [Métodos](#metodos).
  - [Setter y getter](#setter-y-getter).
  - [toString](#tostring).
+ - [printf](#printf).
 - [Constructores](#constructores).
  - [Ordenamiento de datos](#ordenamiento-de-datos).
   - [Método Burbuja](#metodo-burbuja).
@@ -1098,6 +1099,29 @@ public class Persona {
 }
 
 ```
+
+## Printf
+
+El método System.out.printf (“f” significa “formato”) muestra datos en la consola con formato.
+
+Sintaxis:
+
+```java
+System.out.printf(receptáculo y/o texto fijo, parametros...);
+```
+
+Ejemplo:
+
+```java
+System.out.printf("%s\n%s\n", "Bienvenido al", "repositorio de java!");
+```
+
+Los receptáculos son los simbolos % y hace referencia a cada parámetro del método a imprimir, en este caso a "Bienvenido al" y "repositorio de java". El caracter siguiente, representa el tipo de dato a imprimir, en este caso, la "s" equivale a una cadena y todo su conjunto "%s" se le llama especificador de formato.
+
+La siguiente tabla resume los especificadores de formato de java:
+
+
+
 
 
 ## Constructores
