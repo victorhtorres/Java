@@ -1415,6 +1415,28 @@ El polimorfismo nos permite programar de forma general, en vez de programar en f
 
 Con el polimorfismo podemos diseñar e implementar sistemas que puedan extenderse con facilidad; pueden agregarse nuevas clases con sólo modificar un poco (o nada) las porciones generales del programa siempre y cuando las nuevas clases sean parte de la jerarquía de herencia que el programa procesa en forma genérica.
 
+**Ejemplo de polimorfismo**: 
+
+Suponga que tenemos 3 clases. La clase Animal, que es una superclase abstracta con un método abstracto llamado mover y dos clases hijas de Animal, que son Perro y Ave. No podríamos implementar el método mover de la superclase, porque un perro no se mueve igual que un Ave, por lo tanto cada clase hija deberá implementar su propio método mover, que heredan de la clase padre.
+
+Cuando queramos crear un objeto de cada clase, lo normal sería crear e instanciar un para cada tipo de clase, en este caso, Perro y Ave:
+
+```java
+Perro obj = new Perro(); // hemos creado e instanciado un objeto de tipo Perro.
+Ave obj2 = new Ave();  // hemos creado e instanciado un objeto de tipo Ave.
+obj.mover(); // hacemos uso del método mover de la clase Perro, que hereda de Animal.
+obj2.mover(); hacemos uso del método mover de la clase Ave, que hereda de Animal.
+```
+
+Ahora, usando el polimorfismo no tendríamos necesidad de crear un objeto por cada clase, sino que, con un objeto que sea de tipo de la superclase se crea de un tipo de una clase hija, podría hacer uso de los métodos de dicha clase hija, ya que un objeto de una subclase es un objeto de su superclase (pero no viceversa).
+
+```java
+Animal obj3 = new Perro(); // creo un objeto Perro pero de tipo Animal.
+obj3.mover(); // Llama al método de la clase Perro y no al de la superclase, a pesar de que es un objeto tipo Animal.
+```
+
+En conclusión, el polimorfismo es la habilidad de procesar objetos que comparten la misma superclase en una jerarquía de clases, como si todos fueran objetos de la superclase y además, esto facilita la extensibilidad y el mantenimiento de los sistemas.
+
 
 ## Interfaces
 
