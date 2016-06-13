@@ -1120,7 +1120,56 @@ Los receptáculos son los simbolos % y hace referencia a cada parámetro del mé
 
 La siguiente tabla resume los especificadores de formato de java:
 
+**Impresión de enterios**
 
+| Carácter de conversión | Descripción|
+|------------------------|------------|
+| d                      | Muestra un entero decimal (base 10)|
+| o                      | Muestra un entero octal (base 8)|
+| x o X                  | Muestra un entero hexadecimal (base 16).|
+
+**Impresión de números de punto flotante**
+
+| Carácter de conversión | Descripción|
+|------------------------|------------|
+| e o E                  | Muestra un valor de punto flotante en notación exponencial. El carácter de conversión E muestra la salida en letras mayúsculas.|
+| f                      | Muestra un valor de punto flotante en formato decimal.|
+| g o G                  | Muestra un valor de punto flotante en el formato de punto flotante f o en el formato exponencial e, con base en la magnitud del valor. Si la magnitud es menor que 10 a la menos 3,o si es mayor o igual que 10 a la 7, el valor de punto flotante se imprime en el formato f. Cuando se utiliza el carácter de conversión G, la salida se muestra en mayúscula. |
+| a o A                  | Muestra un número de punto flotante en  formato hexadecimal. El carácter de conversión  A muestra la salida en letras mayúsculas.|
+
+**Impresión de cadenas y caracteres**
+
+| Carácter de conversión | Descripción|
+|------------------------|------------|
+| c o C                  | Muestra un carácter de tipo char (se requiere que el argumento sea de ese tipo).|
+| s o S                  | Muestra una cadena. Puede recibir un objeto String o cualquier objeto Object como argumento.|
+
+
+**Impresión de fechas y horas**
+
+| Carácter de conversión | Descripción|
+|------------------------|------------|
+| tc o Tc                | Muestra la fecha y hora con el formato dia mes fecha hora:minuto:segundo zona-horaria año|
+| tF                     | Muestra la fecha con el formato año-mes-dia con cuatro dígitos para el año y dos dígitos para el mes y la fecha (por ejemplo , 2016-07-16)|
+| tD                     | Muestra la fecha con el formato mes/dia/año, con dos dígitos para el mes, día y año (por ejemplo, 06/07/16)|
+| tr                     | Muestra la hora en formato de 12 horas como hora:minuto:segundo AM|PM, con dos dígitos para la hora, minuto y segundo (por ejemplo, 06:30:25 PM).|
+| tR                     | Muestra la hora con el formato hora:minuto, con dos dígitos para la hora y minuto (por ejemplo, 16:50). Se utiliza el reloj 24 horas.|
+| tT                     | Muestra la hora con el formato hora:minuto:segundo, con dos dígitos para la hora, minuto y segundo (por ejemplo, 16:30:25). Se utiliza el reloj de 24 horas.|
+| tA                     | Muestra el nombre completo del día de la semana.|
+| ta                     | Muestra el nombre corto de tres caracteres del día de la semana.|
+| tB                     | Muestra el nombre completo del mes|
+| tb                     | Muestra el nombre corto de tres caracteres del mes.|
+| td                     | Muestra el día del mes con dos dígitos, rellenando con ceros a la izquierda si es necesario.|
+| tm                     | Muestra el mes con dos dígitos, rellenando con ceros a la izquierda si es necesario|
+| tH                     | Muestra la hora en el reloj de 24 horas, con un cero a la izquierda si es necesario|
+| tI                     | Muestra la hora en el reloj de 12 horas, con un cero a la izquierda si es necesario|
+| tk                     | Muestra la hora en el reloj de 24 horas sin ceros a la izquierda|
+| tl                     | Muestra la hora en el reloj de 12 horas sin ceros a la izquierda|
+| tM                     | Muestra los minutos con un cero a la izquierda, si es necesario|
+| tS                     | Muestra los segundos con un cero a la izquierda, si es necesario|
+| tZ                     | Muestra la abreviación para la zona horaria|
+| tp                     | Muestra el marcador de mañana o tarde en minúscula (pm)|
+| tP                     | Muestra el marcador de mañana o tarde en mayúscula (PM)|
 
 
 
