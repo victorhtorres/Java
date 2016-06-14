@@ -80,6 +80,7 @@ Fundamentos de Java
  - [Atrapar excepciones con try, catch y finally](#atrapar-excepciones-con-try-catch-y-finally).
  - [Excepciones comunes](#excepciones-comunes).
  - [Atrapar excepciones con throws y throw](#atrapar-excepciones-con-throws-y-throw).
+- [Recursividad](#recursividad).
 
 
 ## Ambientes
@@ -1802,3 +1803,83 @@ public class Test {
 ```
 
 >También podemos crear nuestras propias excepciones...
+
+## Recursividad
+
+Es la forma de como un método se llama así mismo, con el fin de dividir un problema complejo (llamado caso general) en dos problemas más pequeños, hasta el punto de que pueda resolver uno de ellos (llamado caso base) y así empezar a devolverse hasta llegar al problema inicial y tener ya la solución (concepto de divide y vencerás).
+
+Se puede hacer la recursividad de dos formas.
+
+**Forma directa**
+
+El método se llama así mismo dentro de su mismo cuerpo.
+
+Ejemplo:
+
+```java
+
+
+public class Main {
+
+  public static int potenciaFormaRecursiva(int b, int e) { // b: base, e: exponente
+
+  	// caso base
+    if (e == 0) {
+
+      return 1;
+
+    //caso general
+    } else {
+
+      return potenciaFormaRecursiva(b, --e) * b;
+
+    }
+
+  } // fin método recursivo
+
+  public static void main(String[] args) {
+
+    System.out.printf("Valor de la potencia para base 2: %d\n ", potenciaFormaRecursiva(2, 5));
+
+  } // fin método main
+
+
+} // fin class Main
+
+```
+
+**Forma indirecta**
+
+La recursividad indirecta se manifiesta cundo un método llama a otro y dentro del segundo se manda llamar al primero.
+
+
+Ejemplo:
+
+```java
+
+
+public class Main {
+
+  public static void main(String[] args) {
+
+    System.out.printf("Valor de la potencia para base 2: %d\n ", potenciaFormaRecursiva(2, 5));
+
+  } // fin método main
+
+  public static int potenciaFormaRecursiva(int b, int e) { // b: base, e: exponente
+    if (e == 0) {
+      return 1;
+    } else {
+      return metodoIndirecto(b, --e);
+    }
+  } // fin método recursivo
+  
+  private static int metodoIndirecto(int b, int e){
+    
+    return potenciaFormaRecursiva(b, e) * b; // llama de manera indirecta la recursión de la potencia.
+    
+  } // fin metodo Indirecto
+
+} // fin class Main
+
+```
