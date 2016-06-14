@@ -1830,8 +1830,9 @@ public class Main {
 
     //caso general
     } else {
-
-      return potenciaFormaRecursiva(b, --e) * b;
+    
+      // se llama a si mismo dentro de su mismo cuerpo de instrucciones (recursividad directa):
+      return potenciaFormaRecursiva(b, --e) * b; 
 
     }
 
@@ -1883,3 +1884,21 @@ public class Main {
 } // fin class Main
 
 ```
+>Si omitimos el caso base o escribimos el paso recursivo en forma incorrecta, de manera que no converja en el caso base, se puede producir un error lógico conocido como recursividad infinita, en donde se realizan llamadas recursivas en forma continua, hasta que se agota la memoria.
+
+**Pasos para escribir una función recursiva**
+
+1. Se identifica el caso base.
+2. Se identifica el problema más pequeño (divide y venceras).
+3. Se identifica el caso general.
+
+Ejemplo: Realizar un método recursivo para el factorial de un entero positivo n.
+
+>El factorial de un número es el producto de todos los números enteros positivos desde 0 hasta n (para este caso, n es el número que digitará el usuario).
+
+Análisis del problema:
+
+Teniendo claro lo que es un factorial, ahora debemos pensar cual es el caso base que detiene la recursión y la que permite que se empiece a devolver para resolver todas las operaciones que quedaron pendientes en las llamadas recursivas. Ya con ese análisis, podremos identificar el problema como se divide de manera más pequeña y su caso general, que viene siendo la forma en como se llamará recursivamente:
+
+
+
