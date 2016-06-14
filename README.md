@@ -81,6 +81,8 @@ Fundamentos de Java
  - [Excepciones comunes](#excepciones-comunes).
  - [Atrapar excepciones con throws y throw](#atrapar-excepciones-con-throws-y-throw).
 - [Recursividad](#recursividad).
+ - [Recursividad por pila](#recursividad-por-pila).
+ - [Recursividad por cola](#recursividad-por-cola).
 
 
 ## Ambientes
@@ -1926,5 +1928,31 @@ Código:
 
 Suponga que el método factorial recibe 3 y como 3 no es igual a 0, entonces llama recursivamente el método, pero ahora n será 2 en vez de 3 y queda una operación pendiente por 3. factorial ahora recibe 2 y como 2 no es igual a cero, entonces llama recursivamente el método pero ahora n será 1 en vez de 2 y queda una operación pendiente por 2. factorial ahora recibe 1 y como 1 no es igual a cero, entonces llama recursivamente el método, pero ahora n será 0 en vez de 1 y queda una operación pendiente por 1. factorial recibe 0 y como 0 es igual a 0, entonces retorna el valor de 1 a la última llamada recursiva que hubo y reemplaza todo el (n-1) por 1 y lo múltiplica por la operación que había pendiente, que era por 1, lo que da como resultado 1. Ahora ese 1 reemplaza todo el método recursivo anterior y lo multiplica por 2. Este proceso sigue devolviendose hasta la primera llamada recursiva que tuvo y realiza la última operación que había pendiente y ahora si el método devuelve el valor total de factorial de 3, que es 6.
 
-Este tipo de recursividad, la cual deja operaciones pendientes por hacer, tiene un comportamiento interno de una PILA, la cual va apilando operaciones pendientes y al momento de llegar al caso base, va desapilando las operaciones pendientes que ya ha realizado hasta llegar a la inicial. Este tipo de recursividad tiene un alto costo en procesamiento de memoria.
+### Recursividad por pila
+
+Las llamadas recursivas que dejan operaciones pendientes por ejecutar, tiene un comportamiento interno de una **PILA**, la cual va apilando operaciones pendientes y al momento de llegar al caso base, va desapilando las operaciones pendientes que ya ha realizado hasta llegar a la inicial. Este tipo de recursividad tiene un alto costo en procesamiento de memoria. Para una recursividad más eficiente en el uso de la memoría, se usa un comportamiento de **COLA**.
+
+### Recursividad por cola
+
+Se logra cuando una función recursiva no deja pendiente operaciones, por eso retorna directamente la invocación a la función. El valor que se retorna en la última recursión (en el caso base), es el valor calculado de todo el proceso. El secreto es no dejar cálculos para resolver al terminar la última recursión y se pasan los resultados como parámetros del método recursivo.
+
+Ejemplo con el caso factorial:
+
+```java
+
+ public static int factorial(int n) {
+
+    return factorialCola(n, 1);
+
+  }
+
+  private static int factorialCola(int n, int r) {
+    if (n == 0) {
+      return r; // cuando llegue al caso base, retorna el total del factorial, sin necesidad de devolverse al inicio de la recursión.
+    } else {
+      return factorialCola(n - 1, n * r); // no deja operaciones pendientes...
+    }
+  }
+
+```
 
