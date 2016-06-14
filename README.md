@@ -1209,6 +1209,17 @@ public class PruebaFechaHora
 
 ```
 
+**Otros caracteres de conversión**
+
+| Carácter de conversión | Descripción|
+|------------------------|------------|
+| b o B                  | Imprime true o false para el valor de un boolean o Boolean. Estos caracteres de conversión también pueden aplicar formato al valor de cualquier referencia. |
+| h o H                  | Imprime la representación de cadena del valor de código hash de un objeto en formato hexadecimal. Si el correspondiente argumento es null, se imprime "null". |
+| %                      | Imprime el carácter de por ciento. |
+| n                      | Imprime el separador de línea específico de la plataforma (por ejemplo, \r\n en Windows o \n en UNIX/LINUX) |
+
+
+
 ## Constructores
 
 Un constructor es un método especial que sirve para darle valores inciales a los atributos cuando se crea un objeto de la clase correspondiente. Dicho método, se llama igual al nombre de la clase, no lleva ningún valor de retorno, ni tipo pero puede tener parámetros de entrada o no tenerlos.
