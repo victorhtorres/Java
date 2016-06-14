@@ -1900,5 +1900,31 @@ Análisis del problema:
 
 Teniendo claro lo que es un factorial, ahora debemos pensar cual es el caso base que detiene la recursión y la que permite que se empiece a devolver para resolver todas las operaciones que quedaron pendientes en las llamadas recursivas. Ya con ese análisis, podremos identificar el problema como se divide de manera más pequeña y su caso general, que viene siendo la forma en como se llamará recursivamente:
 
+![Imagen donde se identifica el caso base y general de un factorial](images/analisis-factorial-recursivo.png)
 
+En el análisis se puede observar que el factorial de un número es el anterior por el mismo, lo cual nos indica el caso general. La parte donde el problema se divide en uno más pequeño es (n-1)!, donde acá se resta un 1 a n para llegar al caso base, donde se sabe que el factorial de 0, es 1. Al llegar al caso base, la recursividad se detiene y se empieza a devolver para reemplazar las partes que quedaron pendientes en las llamadas recursivas (n-1)! y empezar a realizar las operaciones respectivas
+
+Código:
+
+```java
+
+  public int factorial(int n) {
+
+    if (n == 0) {
+    
+      return 1;
+      
+    } else {
+    
+      return fact(n - 1) * n;
+      
+    }
+
+  } // fin del método
+
+```
+
+Suponga que el método factorial recibe 3 y como 3 no es igual a 0, entonces llama recursivamente el método, pero ahora n será 2 en vez de 3 y queda una operación pendiente por 3. factorial ahora recibe 2 y como 2 no es igual a cero, entonces llama recursivamente el método pero ahora n será 1 en vez de 2 y queda una operación pendiente por 2. factorial ahora recibe 1 y como 1 no es igual a cero, entonces llama recursivamente el método, pero ahora n será 0 en vez de 1 y queda una operación pendiente por 1. factorial recibe 0 y como 0 es igual a 0, entonces retorna el valor de 1 a la última llamada recursiva que hubo y reemplaza todo el (n-1) por 1 y lo múltiplica por la operación que había pendiente, que era por 1, lo que da como resultado 1. Ahora ese 1 reemplaza todo el método recursivo anterior y lo multiplica por 2. Este proceso sigue devolviendose hasta la primera llamada recursiva que tuvo y realiza la última operación que había pendiente y ahora si el método devuelve el valor total de factorial de 3, que es 6.
+
+Este tipo de recursividad, la cual deja operaciones pendientes por hacer, tiene un comportamiento interno de una PILA, la cual va apilando operaciones pendientes y al momento de llegar al caso base, va desapilando las operaciones pendientes que ya ha realizado hasta llegar a la inicial. Este tipo de recursividad tiene un alto costo en procesamiento de memoria.
 
