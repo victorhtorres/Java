@@ -1218,7 +1218,78 @@ public class PruebaFechaHora
 | %                      | Imprime el carácter de por ciento. |
 | n                      | Imprime el separador de línea específico de la plataforma (por ejemplo, \r\n en Windows o \n en UNIX/LINUX) |
 
+** Impresión con anchuras de campo y precisiones **
 
+Se puede especificar el tamaño de un campo, implementando la anchura de campo, que consiste en insertar un entero entre el % y el carácter de conversión en el especificador de formato (ejemplo, %4d). Si el valor a mostrar es menor que la anchura de campo especificada, entonces el contenido se **justificarán a la derecha**. Si el valor a mostrar es mayor que la anchura de campo, entonces la anchura de campo se incrementa automáticamente para dar cavidad al valor.
+
+Ejemplo:
+
+```java
+
+
+public class Main {
+
+  public static void main(String[] args) {
+    int dato = 123;
+    System.out.printf("%5d\n", dato);
+  }
+
+}
+
+```
+
+> Para justificar a la derecha, solo de colocar un signo menos "-" después del % y antes del especificador de formato (por ejemplo, %-10d).
+
+Podemos especificar la precisión con la que se muestra valores de puntos flotantes y cadenas. Cuando se utiliza con los caracteres de conversión de punto flotante e y f, la precisión es el número de dígitos que aparecen después del punto decimal. Cuando se utiliza con los caracteres de conversión g, a o A, la precisión es el número máximo de dígitos significativos a imprimir. Cuando se utiliza con el carácter de conversión s, la precisión es el número máximo de caracteres a escribir de la cadena. Para utilizar la precisión, se debe colocar entre el signo de porcentaje y el especificador de conversión un punto decimal (.), seguido de un entero que representa la precisión.
+
+Ejemplo:
+
+```java
+
+System.out.printf("%.3f\n", 123.458763);
+System.out.printf("%10.3f\n", 123.458763); // con anchura de campo 10.
+
+```
+**Impresión con índices como argumentos**
+
+Sirve par darle un orden a los argumentos a mostrar. Es un entero opcional seguido del signo $, esto con el fin de darle una posición fija al argumento en la lista de argumentos.
+
+Ejemplo:
+
+```java
+
+public class Main {
+
+  public static void main(String[] args) {
+      System.out.printf( 
+         "Lista de parametros sin reordenar: %s %s %s %s\n", 
+         "1er", "2do", "3er", "4to" );
+         
+         // imprime: 1er 2do 3er 4to
+         
+      System.out.printf( 
+         "Lista de parametros despues de reordenar: %4$s %3$s %2$s %1$s\n", 
+         "1er", "2do", "3er", "4to" );
+        // imprime: 4to 3er 2do 1er
+  }
+
+}
+
+
+```
+
+**Impresión de literales y secuencias de escape**
+
+| Carácter de conversión | Descripción|
+|------------------------|------------|
+| \'                     | Imprime el carácter de comilla sencilla |
+| \"			 | Imprime el carácter de comilla doble |
+| \\			 | Imprime el carácter barra diagonal inversa |
+| \b			 | Desplaza el cursor una posición hacia atrás en la línea atual |
+| \f			 | Desplaza el cursor al principio de la siguiente página lógica |
+| \n			 | Desplaza el cursor al principio de la siguiente línea | 
+| \r			 | Desplaza el cursor al principio de la línea actual |
+| \t			 | Desplazar el cursor hacia la siguiente posición del tabulador horizontal |
 
 ## Constructores
 
