@@ -50,13 +50,13 @@ Fundamentos de Java
  - [toString](#tostring).
  - [printf](#printf).
 - [Constructores](#constructores).
- - [Ordenamiento de datos](#ordenamiento-de-datos).
-  - [Método Burbuja](#metodo-burbuja).
-  - Inserción.
-  - Selección.
-  - QuickSort.
-  - ShellSort.
-  - MergeSort.
+- [Ordenamiento de datos](#ordenamiento-de-datos).
+ - [Método Burbuja](#metodo-burbuja).
+ - Inserción.
+ - Selección.
+ - QuickSort.
+ - ShellSort.
+ - MergeSort.
 - [Sobrecarga de métodos](#sobrecarga-de-metodos).
 - [Sobrecarga de constructores](#sobrecarga-de-constructores).
 - [Apuntador this](#apuntador-this).
