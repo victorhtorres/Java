@@ -35,7 +35,8 @@ Fundamentos de Java
  - [Arreglos unidimensionales](#arreglos-unidimensionales).
  - [Arreglos bidimensionales](#arreglos-bidimensionales).
  - [Usos habituales en los arreglos](#usos-habituales-en-los-arreglos).
-  - [Busquedas](#busquedas).
+  - [Busqueda lineal](#busqueda-lineal).
+  - [Busqueda binaria](#busqueda-binaria).
   - [Conteos](#Conteos).
   - [Mayor y menor](#mayor-y-menor).
 - [Programación orientado a objetos](#programacion-orientado-a-objetos).
@@ -782,9 +783,9 @@ for(int i=0; i < biarreglo.length; i++){
 
 ### Usos habituales en los arreglos
 
-#### Busquedas
+#### Busqueda lineal
 
-Se trata de recorrer todo el arreglo hasta encontrar un dato buscado. También conocido como búsqueda lineal.
+Se trata de recorrer todo el arreglo, comparando dato por dato, hasta encontrar el dato buscado.
 
 ```java
 
@@ -801,6 +802,45 @@ for (int i=0 ; i< carreras.length ; i++){
 ```
 
 >Si en el arreglo hay datos repetidos, entonces la búsqueda devuelve el primero que encuentre.
+
+
+#### Busqueda binaria
+
+El algoritmo de búsqueda binaria es más eficiente que el algoritmo de búsqueda lineal, pero requiere que el arreglo se ordene primero antes de realizar una búsqueda.
+
+El método simplemente lo que va a hacer es reducir la búsqueda a la mitad, partiendo desde la mitad del arreglo y comparar si el valor de la mitad es igual al buscado. Si no son iguales, entonces valida si el valor a buscar es menor que el de la mitad. Si es menor, entonces descarta el resto de datos que se encuentre desde la mitad en adelante del arreglo. Si el valor a buscar es mayor que el de la mitad, entonces descarta el resto de datos que esté desde la mitad al inicio del arreglo. Este proceso lo seguirá haciendo hasta que el valor de la mitad sea el mismo que el valor buscado.
+
+Método:
+
+```java
+
+  // realiza una búsqueda binaria en los datos
+  public int busquedaBinaria(int elementoBusqueda) {
+    int inferior = 0; // extremo inferior del área de búsqueda
+    int superior = datos.length - 1; // extremo superior del área de búsqueda
+    int medio = (inferior + superior + 1) / 2; // elemento medio
+    int ubicacion = -1; // devuelve el valor; -1 si no lo encontró
+
+    do // ciclo para buscar un elemento
+    {
+      // si el elemento se encuentra en medio
+      if (elementoBusqueda == datos[medio]) {
+        ubicacion = medio; // la ubicación es el elemento medio actual
+      } else if (elementoBusqueda < datos[medio]) { // el elemento medio es demasiado alto
+        superior = medio - 1; // elimina la mitad superior
+      } else // el elemento medio es demasiado bajo
+      {
+        inferior = medio + 1; // elimina la mitad inferior
+      }
+      medio = (inferior + superior + 1) / 2; // recalcula el elemento medio
+    } while ((inferior <= superior) && (ubicacion == -1));
+
+    return ubicacion; // devuelve la ubicación de la clave de búsqueda
+  } // fin del método busquedaBinaria
+
+
+```
+En tiempos de ejecución ([Big O](#notacion-big-o)), la búsqueda binaria se comporta de manera logarítmica, O(log n), a diferencia de la búsqueda linea que sería O(n), lo que significa que, para un arreglo de mil millones de elementos, ésta es una diferencia entre un promedio de 500 millones de comparaciones para la búsqueda lineal, ¡y un máximo de sólo 30 comparaciones para la búsqueda binaria!
 
 #### Conteos
 
