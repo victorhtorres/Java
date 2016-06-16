@@ -783,7 +783,7 @@ for(int i=0; i < biarreglo.length; i++){
 
 #### Busquedas
 
-Se trata de recorrer todo el arreglo hasta encontrar un dato buscado.
+Se trata de recorrer todo el arreglo hasta encontrar un dato buscado. También conocido como búsqueda lineal.
 
 ```java
 
@@ -796,7 +796,10 @@ for (int i=0 ; i< carreras.length ; i++){
 	}
 }
 
+
 ```
+
+>Si en el arreglo hay datos repetidos, entonces la búsqueda devuelve el primero que encuentre.
 
 #### Conteos
 
