@@ -2047,3 +2047,7 @@ public boolean validarElementoUnico(int datos[]){
 **Crecimiento exponencial o factorial**
 
 ![Gráfica de crecimiento exponencial o factorial](images/crecimiento-exponencial-factorial.png)
+
+**Fuentes de notación Big O**
+- Como programar en Java, edición 9. Capítulo 19.
+- [Estructura de Datos - Análisis de Algoritmos, Complejidad](https://www.youtube.com/watch?v=BfUm9wBiu8E).
