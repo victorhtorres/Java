@@ -83,6 +83,7 @@ Fundamentos de Java
 - [Recursividad](#recursividad).
  - [Recursividad por pila](#recursividad-por-pila).
  - [Recursividad por cola](#recursividad-por-cola).
+- [Notación Big O](#notacion-big-o).
 
 
 ## Ambientes
@@ -1959,3 +1960,90 @@ Ejemplo con el caso factorial:
 
 ```
 
+## Notacion Big O: 
+
+Es una forma de describir la cantidad de esfuerzo que requiere un algoritmo para realizar una tarea (por ejemplo, una búsqueda de datos), la cual indica el tiempo de ejecución para el peor caso de un algoritmo.
+
+Para los casos de búsqueda y ordenamiento, esto depende especificamente de cúantos elementos de datos haya en una colección de datos.
+
+**Algoritmos O(1)**
+
+Significa que el algoritmo tiene un tiempo de ejecución constante, en el sentido de que, el algoritmo requiere hacer una comparación y dicha comparación es constante (no crece a medida de que aumenta el tamaño del arreglo o la colección de datos) y es completamente independiente del número de elementos que tenga el arreglo o la colección de datos. 
+
+Ejemplo: comparar si el primer elemento de un arreglo es igual al segundo elemento (no importa si el arreglo tiene 1000 elementos, sigue siendo constante la forma en que compara).
+
+**Algoritmo O(n)**
+
+Un algoritmo que evalúa si el primer elemento de un arreglo es igual a cualquiera de los demás elementos del arreglo requerirá cuando menos de n – 1 comparaciones, en donde n es el número de elementos en el arreglo. Si el arreglo tiene 10 elementos, este algoritmo requiere hasta nueve comparaciones. Si el arreglo tiene 1000 elementos, requiere hasta 999 comparaciones. A medida que n aumenta en tamaño, la parte de la expresión correspondiente a la n “domina”, y si le restamos uno no hay consecuencias. Big O está diseñado para resaltar estos términos dominantes, e ignorar los términos que pierden importancia a medida que n crece. Por esta razón, se dice que un algoritmo que requiere un total de n – 1 comparaciones (como el que describimos antes) es O(n). Se considera que un algoritmo O(n) tiene un tiempo de ejecución lineal. A menudo, O(n) significa “en el orden de n”, o dicho en forma más simple, “orden n”.
+
+Otro ejemplo es validar que en un arreglo o colección de datos, está un valor dado. En el peor de los casos la sentencia if se ejecutará n veces:
+
+```java
+
+public boolean buscarArreglo(int datos[], int buscado){
+
+  for (int i = 0; i < datos.length; i++){
+
+    if (datos[i] == buscado) {
+
+      return true;
+
+    } // fin if
+
+  } // fin for
+
+  return false;
+
+} // fin metodo buscarArreglo
+
+```
+
+**Algoritmos O(n^2)**
+
+Big O se enfoca en la forma en que aumenta el tiempo de ejecución de un algoritmo, en relación con el número de elementos procesados. Suponga que un algoritmo requiere n^2 comparaciones. Con cuatro elementos, el algoritmo requiere 16 comparaciones; con ocho elementos, 64 comparaciones. Con este algoritmo, al duplicar el número de elementos se cuadruplica el número de comparaciones. Cuando n es pequeña, los algoritmos O(n^2) (que se ejecutan en las computadoras personales de la actualidad) no afectan el rendimiento en forma considerable. Pero a medida que n aumenta, se empieza a notar la reducción en el rendimiento. Un algoritmo O(n^2) que se ejecute en un arreglo de un
+millón de elementos requeriría un billón de “operaciones” (en donde cada una requeriría en realidad 804 Capítulo 19 Búsqueda, ordenamiento y Big O varias instrucciones de máquina para ejecutarse). Esto podría tardar varias horas.
+
+Ejemplo: Determinar si cada elemento de un arreglo es único.
+
+>La instrucción if del ciclo j, se ejecuta (n-1), (n-2), ..., 3, 2, 1
+
+```java
+
+public boolean validarElementoUnico(int datos[]){
+
+  for (int i = 0; i < datos.length; i++){
+
+    for (int j = i + 1; j < datos.length; j++){
+
+      if (datos[i] == datos[j]) {
+
+        return true;
+
+      } // fin if
+
+    } // fin for j
+
+  } // fin for i
+
+  return false;
+
+} // fin metodo validarElementoUnico
+
+
+```
+
+**Estudio de una función de entrada, según el valor de entrada n sea 10**
+
+![Valores funcionales para n cuando vale 10](images/estudio-funcion-entrada.png)
+
+**Comportamiento de las funciones de orden más comúnes**
+
+![Gráfica de las funciones O más comunes](images/grafica-funciones-o.png)
+
+**Crecimiento logarítmico y polinómico**
+
+![Gráfica de crecimiento logárítmico y polinómico](images/crecimiento-logaritmico-polinomico.png)
+
+**Crecimiento exponencial o factorial**
+
+![Gráfica de crecimiento exponencial o factorial](images/crecimiento-exponencial-factorial.png)
