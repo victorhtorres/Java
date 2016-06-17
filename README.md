@@ -1496,8 +1496,6 @@ Cada ciclo individual se ejecuta en un tiempo O(n). En notación Big O, los cicl
 
 ### MergeSort
 
-### MergeSort
-
 El método de ordenamiento por combinación o MergeSort (en inglés), es un algoritmo eficiente en comparación con los métodos de selección e inserción.
 
 Para ordenar un arreglo, el algoritmo de ordenamiento por combinación lo divide en dos subarreglos de igual tamaño, ordena cada subarreglo y después los combina en un arreglo más grande. Con un número impar de elementos, el algoritmo crea los dos subarreglos de tal forma que uno tenga más elementos que el otro. La implementación del ordenamiento por combinación en este ejemplo es recursiva. El caso base es un arreglo con un elemento que, desde luego, está ordenado, por lo que el ordenamiento por combinación regresa de inmediato en este caso. El paso recursivo divide el arreglo en dos piezas de un tamaño aproximadamente igual, las ordena en forma recursiva y después combina los dos arreglos ordenados en un arreglo ordenado de mayor tamaño. Puntalmente, estos son los pasos:
