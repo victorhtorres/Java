@@ -57,7 +57,7 @@ Fundamentos de Java
  - [Inserción](#insercion).
  - QuickSort.
  - ShellSort.
- - MergeSort.
+ - [MergeSort](#mergesort).
 - [Sobrecarga de métodos](#sobrecarga-de-metodos).
 - [Sobrecarga de constructores](#sobrecarga-de-constructores).
 - [Apuntador this](#apuntador-this).
@@ -1412,10 +1412,6 @@ Gráficamente:
 
 ![Imagén método burbuja](images/ejemplo_metodo_burbuja2.png)
 
-
-Los primeros dos (ordenamiento
-por selección y ordenamiento por inserción) son simples de programar, pero ineficientes.
-
 ### Seleccion
 
 El ordenamiento por selección es un algoritmo de ordenamiento simple, pero ineficiente. En la primera iteración del algoritmo se selecciona el elemento más pequeño en el arreglo, y se intercambia con el primer elemento. En la segunda iteración se selecciona el segundo elemento más pequeño (que viene siendo el elemento más pequeño de los elementos restantes) y se intercambia con el segundo elemento. El algoritmo continúa hasta que en la última iteración se selecciona el segundo elemento más grande y se intercambia con el índice del segundo al último, dejando el elemento más grande en el último índice. Después de la i-ésima iteración, los i elementos más pequeños del arreglo se ordenarán en forma ascendente, en los primeros i elementos del arreglo.
@@ -1498,6 +1494,90 @@ Método:
 
 Cada ciclo individual se ejecuta en un tiempo O(n). En notación Big O, los ciclos anidados indican que debemos multiplicar el número de comparaciones. Para cada iteración de un ciclo exterior, habrá cierto número de iteraciones en el ciclo interior. En este algoritmo, para cada O(n) iteraciones del ciclo exterior, habrá O(n) iteraciones del ciclo interior. Al multiplicar estos valores se produce un valor Big O de O(n^2).
 
+### MergeSort
+
+### MergeSort
+
+El método de ordenamiento por combinación o MergeSort (en inglés), es un algoritmo eficiente en comparación con los métodos de selección e inserción.
+
+Para ordenar un arreglo, el algoritmo de ordenamiento por combinación lo divide en dos subarreglos de igual tamaño, ordena cada subarreglo y después los combina en un arreglo más grande. Con un número impar de elementos, el algoritmo crea los dos subarreglos de tal forma que uno tenga más elementos que el otro. La implementación del ordenamiento por combinación en este ejemplo es recursiva. El caso base es un arreglo con un elemento que, desde luego, está ordenado, por lo que el ordenamiento por combinación regresa de inmediato en este caso. El paso recursivo divide el arreglo en dos piezas de un tamaño aproximadamente igual, las ordena en forma recursiva y después combina los dos arreglos ordenados en un arreglo ordenado de mayor tamaño. Puntalmente, estos son los pasos:
+
+1. Si la longitud de la lista es 0 ó 1, entonces ya está ordenada. En otro caso:
+2. Dividir la lista desordenada en dos sublistas de aproximadamente la mitad del tamaño.
+3. Ordenar cada sublista recursivamente aplicando el ordenamiento por combinación.
+4. Combinar las dos sublistas en una sola lista ordenada.
+
+Método:
+
+
+```java
+
+   // llama al método de división recursiva para comenzar el ordenamiento por combinación
+   public void ordenar()
+   {
+      ordenarArreglo( 0, datos.length - 1 ); // divide todo el arreglo
+   } // fin del método ordenar
+
+   // divide el arreglo, ordena los subarreglos y los combina en un arreglo ordenado
+   private void ordenarArreglo( int inferior, int superior ) 
+   {
+      // evalúa el caso base; el tamaño del arreglo es igual a 1
+      if ( ( superior - inferior ) >= 1 ) // si no es el caso base
+      {
+         int medio1 = ( inferior + superior ) / 2; // calcula el elemento medio del arreglo
+         int medio2 = medio1 + 1; // calcula el siguiente elemento arriba
+
+         // divide el arreglo a la mitad; ordena cada mitad (llamadas recursivas)
+         ordenarArreglo( inferior, medio1 ); // primera mitad del arreglo
+         ordenarArreglo( medio2, superior ); // segunda mitad del arreglo
+
+         // combina dos arreglos ordenados después de que regresan las llamadas de división
+         combinar ( inferior, medio1, medio2, superior );
+      } // fin de if
+   } // fin del método ordenarArreglo
+   
+   // combina dos subarreglos ordenados en un subarreglo ordenado
+   private void combinar( int izquierdo, int medio1, int medio2, int derecho ) 
+   {
+      int indiceIzq = izquierdo; // índice en subarreglo izquierdo
+      int indiceDer = medio2; // índice en subarreglo derecho
+      int indiceCombinado = izquierdo; // índice en arreglo de trabajo temporal
+      int[] combinado = new int[ datos.length ]; // arreglo de trabajo
+    
+      // combina los arreglos hasta llegar al final de uno de ellos
+      while ( indiceIzq <= medio1 && indiceDer <= derecho )
+      {
+         // coloca el menor de dos elementos actuales en el resultado
+         // y lo mueve al siguiente espacio en los arreglos
+         if ( datos[ indiceIzq ] <= datos[ indiceDer ] )
+            combinado[ indiceCombinado++ ] = datos[ indiceIzq++ ]; 
+         else 
+            combinado[ indiceCombinado++ ] = datos[ indiceDer++ ];
+      } // fin de while
+   
+      // si el arreglo izquierdo está vacío
+      if ( indiceIzq == medio2 )
+         // copia el resto del arreglo derecho
+         while ( indiceDer <= derecho )
+            combinado[ indiceCombinado++ ] = datos[ indiceDer++ ];
+      else // el arreglo derecho está vacío
+         // copia el resto del arreglo izquierdo
+         while ( indiceIzq <= medio1 ) 
+            combinado[ indiceCombinado++ ] = datos[ indiceIzq++ ];      
+
+      // copia los valores de vuelta al arreglo original
+      for ( int i = izquierdo; i <= derecho; i++ )
+         datos[ i ] = combinado[ i ];
+
+   } // fin del método combinar
+
+
+```
+
+> El método mergesort tiene un tiempo de ejecución de O(nlogn), lo que resulta más eficiente en comparación con los métodos de selección e inserción.
+
+
+![Valores cómunes Big O](images/valores-big-o-para-funciones-comunes.png)
 
 ## Sobrecarga de metodos
 
