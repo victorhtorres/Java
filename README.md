@@ -53,8 +53,8 @@ Fundamentos de Java
 - [Constructores](#constructores).
 - [Ordenamiento de datos](#ordenamiento-de-datos).
  - [Método Burbuja](#metodo-burbuja).
- - Inserción.
- - Selección.
+ - [Selección](#seleccion).
+ - [Inserción](#insercion).
  - QuickSort.
  - ShellSort.
  - MergeSort.
@@ -1367,8 +1367,8 @@ Cuándo se analiza un método de ordenamiento, se debe determinar cuántas compa
 Métodos de ordenamiento más conocidos:
 
 - Burbuja.
-- Inserción.
 - Selección.
+- Inserción.
 - QuickSort.
 - ShellSort.
 - MergeSort.
@@ -1411,6 +1411,92 @@ return a;
 Gráficamente:
 
 ![Imagén método burbuja](images/ejemplo_metodo_burbuja2.png)
+
+
+Los primeros dos (ordenamiento
+por selección y ordenamiento por inserción) son simples de programar, pero ineficientes.
+
+### Seleccion
+
+El ordenamiento por selección es un algoritmo de ordenamiento simple, pero ineficiente. En la primera iteración del algoritmo se selecciona el elemento más pequeño en el arreglo, y se intercambia con el primer elemento. En la segunda iteración se selecciona el segundo elemento más pequeño (que viene siendo el elemento más pequeño de los elementos restantes) y se intercambia con el segundo elemento. El algoritmo continúa hasta que en la última iteración se selecciona el segundo elemento más grande y se intercambia con el índice del segundo al último, dejando el elemento más grande en el último índice. Después de la i-ésima iteración, los i elementos más pequeños del arreglo se ordenarán en forma ascendente, en los primeros i elementos del arreglo.
+
+Método:
+
+```java
+
+   // ordena el arreglo usando el ordenamiento por selección
+   public void ordenar()
+   {
+      int masPequenio; // índice del elemento más pequeño
+
+      // itera a través de datos.length - 1 elementos
+      for ( int i = 0; i < datos.length - 1; i++ ) {
+         masPequenio = i; // primer índice del resto del arreglo
+
+         // itera para buscar el índice del elemento más pequeño
+         for ( int indice = i + 1; indice < datos.length; indice++ ) {
+            if ( datos[ indice ] < datos[ masPequenio ] ) {
+               masPequenio = indice;
+            }
+         } // fin for interno
+
+         intercambiar( i, masPequenio ); // intercambia el elemento más pequeño en la posición
+         
+      } // fin de for exterior
+   } // fin del método ordenar
+
+   // método ayudante para intercambiar los valores de dos elementos
+   public void intercambiar( int primero, int segundo ) {
+      int temporal = datos[ primero ]; // almacena primero en temporal
+      datos[ primero ] = datos[ segundo ]; // sustituye primero con segundo
+      datos[ segundo ] = temporal; // coloca temporal en segundo
+   } // fin del método intercambiar
+
+
+```
+
+>El algoritmo de ordenamiento por selección se ejecuta en un tiempo igual a O(n^2).
+
+
+### Insercion
+
+El ordenamiento por inserción es otro algoritmo de ordenamiento simple, pero ineficiente. En la primera iteración de este algoritmo se toma el segundo elemento en el arreglo y, si es menor que el primero, se intercambian. En la segunda iteración se analiza el tercer elemento y se inserta en la posición correcta, con respecto a los primeros dos elementos, de manera que los tres elementos estén ordenados. En la i-ésima iteración de este algoritmo, los primeros i elementos en el arreglo original estarán ordenados.
+
+Método:
+
+```java
+
+   // ordena el arreglo usando el ordenamiento por inserción
+   public void sort()
+   {
+      int insercion; // variable temporal para contener el elemento a insertar
+
+      // itera a través de datos.length - 1 elementos
+      for ( int siguiente = 1; siguiente < datos.length; siguiente++ )
+      {
+         // almacena el valor en el elemento actual
+         insercion = datos[ siguiente ]; 
+
+         // inicializa ubicación para colocar el elemento
+         int moverElemento = siguiente; 
+
+         // busca un lugar para colocar el elemento actual
+         while ( moverElemento > 0 && datos[ moverElemento - 1 ] > insercion )
+         {
+            // desplaza el elemento una posición a la derecha
+            datos[ moverElemento ] = datos[ moverElemento - 1 ];
+            moverElemento--;
+         } // fin de while
+
+         datos[ moverElemento ] = insercion; // coloca el elemento insertado
+      } // fin de for
+   } // fin del método ordenar
+
+```
+
+>El algoritmo de ordenamiento por inserción también se ejecuta en un tiempo igual a O(n^2).
+
+Cada ciclo individual se ejecuta en un tiempo O(n). En notación Big O, los ciclos anidados indican que debemos multiplicar el número de comparaciones. Para cada iteración de un ciclo exterior, habrá cierto número de iteraciones en el ciclo interior. En este algoritmo, para cada O(n) iteraciones del ciclo exterior, habrá O(n) iteraciones del ciclo interior. Al multiplicar estos valores se produce un valor Big O de O(n^2).
 
 
 ## Sobrecarga de metodos
