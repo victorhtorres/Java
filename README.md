@@ -1265,7 +1265,7 @@ public class PruebaFechaHora
 | %                      | Imprime el carácter de por ciento. |
 | n                      | Imprime el separador de línea específico de la plataforma (por ejemplo, \r\n en Windows o \n en UNIX/LINUX) |
 
-** Impresión con anchuras de campo y precisiones **
+**Impresión con anchuras de campo y precisiones**
 
 Se puede especificar el tamaño de un campo, implementando la anchura de campo, que consiste en insertar un entero entre el % y el carácter de conversión en el especificador de formato (ejemplo, %4d). Si el valor a mostrar es menor que la anchura de campo especificada, entonces el contenido se **justificarán a la derecha**. Si el valor a mostrar es mayor que la anchura de campo, entonces la anchura de campo se incrementa automáticamente para dar cavidad al valor.
 
