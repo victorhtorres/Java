@@ -2255,3 +2255,299 @@ public boolean validarElementoUnico(int datos[]){
 **Fuentes de notación Big O**
 - Como programar en Java, edición 9. Capítulo 19.
 - [Estructura de Datos - Análisis de Algoritmos, Complejidad](https://www.youtube.com/watch?v=BfUm9wBiu8E).
+
+
+## Coleccion de datos genericos
+
+Una colección es una estructura de datos, un objeto que, puede contener referencias a otros objetos. Por lo general, las colecciones contienen referencias a los objetos que son todos del mismo tipo. Java dispone de una colección pre-construida de estructura de datos genéricos (por ejemplo, los ArrayList), la cual, poseen intefaces y una seríe de métodos para su respectiva manipulación. Algunas de ellas, son:
+
+![Interfaces de colecciones de datos en java](images/coleccion-interfaces.png)
+
+Las colecciones genéricas proporcionan seguridad en los tiempos de compilación, ya que se asegura de que el dato que se va a almacenar, sea el mismo tipo que el de la colección. Por ejemplo, no se puede almacenar Integers en una colección de Strings.
+
+### Autoboxing and Auto-Unboxing
+
+Versiones anteriores a Java SE 5, si querías insertar un dato de tipo primitivo en una colección, se necesitaba crear el nuevo objeto correspondiente al tipo de envuelto por la clase (Byte, Short, Integer, Long, Float y Double). Ejemplo:
+
+```java
+
+Integer[] integerArray = new Integer[ 5 ]; // create integerArray
+// assign Integer 10 to integerArray[ 0 ]
+integerArray[ 0 ] = new Integer( 10 );
+// get int value of Integer
+int value = integerArray[ 0 ].intValue();
+
+```
+
+Desde la versión Java SE 5, se introducieron dos nuevas conversiones: boxing conversion y unboxing conversion. Boxing conversion convierte un valor de tipo primitivo en un objeto correspondiente de su clase. Unboxing conversion convierte un objeto del tipo envuelto de su clase a su tipo primitivo. Estas conversiones son automáticas, lo que vuelve más legíble el código, así:
+
+```java
+Integer[] integerArray = new Integer[ 5 ]; // create integerArray
+integerArray[ 0 ] = 10; // assign Integer 10 to integerArray[ 0 ]
+int value = integerArray[ 0 ]; // get int value of Integer
+
+```
+
+### Colecciones de interfaces y de clases
+
+La interfaz **Collection** es la raíz de las interfaces en la jerarquía de colecciones, de la cual se derivan las interfaces **Set**, **Queue** y **List**. La interfaz Collection ofrece un método que retorna un Iterator para poder recorrer fácilmente una colección y poder remover datos durante la iteración y también, ofrece otros métodos como: size (conocer el tamaño de la colección), empty (saber si está vacío) y muchos más...
+
+### List
+
+Una lista es una colección ordenada que puede contener elementos duplicados. Al igual que los índices del array, el índices de la lista comienza en cero (es decir, el índice del primer elemento es cero). Además de los métodos heredados de Collection, List proporciona métodos para elementos a través de sus índices de manipulación, la manipulación de un rango especificado de elementos, la búsqueda de elementos, y la obtención de un ListIterator para acceder a los elementos.
+
+La interfaz List es implementada por varias clases, incluyendo los ArrayList, LinkedList y Vector. Algo interesante es que, la clase LinkedList se utiliza para crear **pilas**, **colas** y **colas doblemente enlazadas**.
+
+Demostración de una interfaz de colección de datos genéricos con ArrayList:
+
+```java
+
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+
+
+public class Main {
+
+  public static void main(String[] args) {
+
+  	// crea un array de nombres de colores
+    String[] colors = {"MAGNETA", "RED", "WHITE", "BLUE", "CYAN"};
+    List<String> list = new ArrayList<>(); //crea una lista de tipo String.
+
+    for (String color : colors) {
+      list.add(color); // agrego cada valor del arreglo en la lista.
+    }
+
+    // array de colores a borrar de list
+    String[] removeColors = {"RED", "WHITE", "BLUE"};
+    List<String> removeList = new ArrayList<>(); // crea otra lista de tipo String
+
+    for (String color : removeColors) {
+      removeList.add(color); // agrego los colores a borrar en la lista removeList
+    }
+    
+    // imprimo list
+    System.out.println("ArrayList: "); 
+    
+    for (int count = 0; count < list.size(); count++) {
+      System.out.printf("%s ", list.get(count));
+    }
+    
+    // llamo el método para removerColors y le envío las dos listas.
+    removeColors(list, removeList);
+
+
+    // Imprime la lista después de haber borrado los colores seleccionados
+    System.out.println("\n\nArrayList despues de llamar removeColors:");
+    
+    for(String color: list) {
+      System.out.printf("%s ", color);
+    }
+    
+  } // fin main
+
+  // metodo para borrar los colores con dos listas
+  private static void removeColors(Collection<String> list, Collection<String> removeList) {
+    Iterator<String> iterator = list.iterator(); // llama el método iterator, el cual me devuelve un iterador para recorrer la lista.
+
+    while (iterator.hasNext()) { // mientras que existan elementos en el iterador.
+
+      if (removeList.contains(iterator.next())) { // busca los valores de removeList en el iterador, el cual tiene los valores de la lista list.
+        iterator.remove(); // metodo para remover el elemento actual del iterador.
+      }
+      
+    } // fin while
+    
+  } // fin removeColors
+
+} // fin class
+
+```
+
+#### ArrayList
+
+La clase de colección ArrayList<T> (del paquete java.util) provee una solución conveniente al problema de los tamaños fijos en los arreglos: puede cambiar su tamaño en forma dinámica para dar cabida a más elementos. La T (por convención) es un receptáculo: al declarar un nuevo objeto ArrayList, hay que reemplazarlo con el tipo de elementos que deseamos que contenga el objeto ArrayList. Esto es similar a especificar el tipo cuando declaramos un arreglo, pero sólo se pueden usar tipos no primitivos con estas clases de colecciones. Por ejemplo:
+
+
+`ArrayList<String> lista;`
+
+Algunos métodos útiles en los ArrayList:
+
+![tabla de métodos útiles en los ArrayList](images/metodos-arraylist.png)
+
+Ejemplo:
+
+
+```java
+
+
+import java.util.ArrayList;
+
+public class ColeccionArrayList
+{
+   public static void main( String[] args )
+   {
+      // crea un nuevo objeto ArrayList de objetos String
+      ArrayList< String > elementos = new ArrayList< String >(); 
+
+      elementos.add("rojo" ); // adjunta un elemento a la lista          
+      elementos.add( 0, "amarillo" ); // inserta el valor en el subíndice 0
+
+      // encabezado
+      System.out.print( 
+         "Mostrar contenido de lista con ciclo controlado por contador:" ); 
+
+      // muestra los colores en la lista
+      for ( int i = 0; i < elementos.size(); i++ )
+         System.out.printf( " %s", elementos.get( i ) );
+
+      // muestra los colores usando foreach en el método mostrar
+      mostrar( elementos,
+         "\nMostrar contenido de lista con instruccion for mejorada:" );
+
+      elementos.add(0, "verde" ); // agrega "verde" al final de la lista
+      elementos.add(0, "amarillo" ); // agrega "amarillo" al final de la lista 
+      mostrar( elementos, "Lista con dos nuevos elementos:" ); 
+
+      elementos.remove( "amarillo" ); // elimina el primer "amarillo"
+      mostrar( elementos, "Eliminar primera instancia de amarillo:" ); 
+
+      elementos.remove( 1 ); // elimina elemento en subíndice 1
+      mostrar( elementos, "Eliminar segundo elemento de la lista (verde):" ); 
+
+      // verifica si hay un valor en la lista
+      System.out.printf( "\"rojo\" %sesta en la lista\n",
+         elementos.contains( "rojo" ) ? "": "no " );
+
+      // muestra el número de elementos en la lista
+      System.out.printf( "Tamanio: %s\n", elementos.size() );
+   } // fin de main
+
+   // muestra los elementos de ArrayList en la consola
+   public static void mostrar( ArrayList< String > elementos, String encabezado )
+   {
+      System.out.print( encabezado ); // mostrar encabezado
+
+      // muestra cada elemento en elementos
+      for ( String elemento : elementos )
+         System.out.printf( " %s", elemento );
+
+      System.out.println(); // muestra fin de línea
+   } // fin del método mostrar
+} // fin de la clase ColeccionArrayList
+
+
+```
+
+>ArrayList es una elección poco adecuada si la inserción no se hace al final, porque entonces nos veremos obligados a desplazar los elementos para hacer sitio a los elementos nuevos.
+
+
+
+#### LinkedList
+
+En una lista enlazada o linked list, los elementos se almacenan de forma no contigua, en lugar de emplearse la matriz contigua usual. Para hacer esto, almacenamos cada objeto en un nodo que contiene el objeto y una referencia al siguiente nodo de la lista, en otras palabras, lo que hacemos es tener referencias al primer y último nodo de la lista:
+
+![lista enlazada simple](images/lista-enlazada-simple.png)
+
+Los LinkedList de Java, tiene un comportamiento de una **lista doblemente enlazada**, lo que significa que, un nodo tiene una referencia del nodo anterior y del siguiente:
+
+![imagen de una lista doblemente enlazada](images/lista-doblemente-enlazada.png)
+
+Con una lista enlazada ya no se podrá acceder a un único elemento arbitrario como se hacía con los arreglos. En vez de eso, se necesita recorrer toda la lista, pero la ventaja ante el ArrayList es que, al insertar un valor en la mitad de la lista, no requiere desplazar los otros elementos para darle espacio al nuevo elemento, sino que, solo se actualiza el enlace al nodo siguiente. Los mismo sucede con los borrados en la mitad, con LinkedList sería más eficiente este proceso.
+
+**Costes de cada una de las operaciones sencillas para ArrayList y LinkedList**
+
+![Imagen comparativa de notación big O para ArrayList y LinkedList](images/costes-arraylist-linkedlist.png)
+
+Ejemplo: Implementación de List.
+
+```java
+
+// Prueba de List, LinkedList e Iterator.
+
+import java.util.List;
+import java.util.LinkedList;
+import java.util.Iterator;
+import java.util.ListIterator;
+
+
+public class ListTest {
+  
+  public static void main(String[] args) {
+    
+    // arreglo de estudiantes
+    String[] estudiantes = {"Harry", "Jaime", "Victor", "Katherine"};
+    // Creo el objeto de tipo linkedList
+    List<String> lista = new LinkedList<>();
+    
+    //agrego los estudiantes a la lista
+    for(String elemento: estudiantes){
+      lista.add(elemento);
+    }
+    
+    // arreglo de más estudiantes
+    String[] estudiantes2 = {"Carlos", "Beto", "Juanita", "Mercedes"};
+    List<String> lista2 = new LinkedList<>();
+    
+    for(String elemento: estudiantes2){
+      lista2.add(elemento);
+    }
+    
+    // metodo para concatenar listas
+    lista.addAll(lista2);
+    lista2 = null;
+    
+    //metodo para imprimir listas
+    imprimirLista(lista);
+    
+    //metodo para convertir los elementos de la lista en MAYUS
+    convertirListaMayus(lista);
+    imprimirLista(lista);
+    
+    System.out.print("\nBorrando elementos desde 4 a 6...");
+    removerItem(lista, 4, 7);
+    imprimirLista(lista);
+    imprimirListaRevertida(lista);
+    
+    
+  }
+
+  private static void imprimirLista(List<String> lista) {
+    System.out.println("\nLista: ");
+    
+    for(String elemento: lista){
+      System.out.printf("%s ", elemento);
+    }
+    System.out.println();
+  } // fin metodo imprimir lista
+
+  private static void convertirListaMayus(List<String> lista) {
+    ListIterator<String> iterador = lista.listIterator();
+    
+    while(iterador.hasNext()){
+      String nombre = iterador.next(); // toma el valor del iterador, que sería el nombre de la lista
+      iterador.set(nombre.toUpperCase()); // convierte el nombre en MAYUS y lo reemplaza en el valor del iterador.
+    } // fin while
+  } // fin metodo convertirListaMayus
+
+  private static void removerItem(List<String> lista, int inicio, int fin) {
+    lista.subList(inicio, fin).clear(); // extrae una sublista y los elimina.
+  }
+
+  private static void imprimirListaRevertida(List<String> lista) {
+    ListIterator<String> iterator = lista.listIterator(lista.size()); //devuelve el iterador con los elementos de la lista, colocandose en la posición final.
+    System.out.println("\nLista revertida: ");
+    
+    while(iterator.hasPrevious()){
+      System.out.printf("%s ", iterator.previous());
+    }
+  }
+  
+  
+}
+
+
+```
