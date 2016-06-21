@@ -85,6 +85,12 @@ Fundamentos de Java
  - [Recursividad por pila](#recursividad-por-pila).
  - [Recursividad por cola](#recursividad-por-cola).
 - [Notación Big O](#notacion-big-o).
+- [Coleccion de datos genericos](#coleccion-de-datos-genericos).
+ - [Autoboxing and Auto-Unboxing](#autoboxing-and-auto-unboxing).
+ - [Colecciones de interfaces y de clases](#colecciones-de-interfaces-y-de-clases).
+ - [Listas](#list).
+  - [ArraList](#arraylist).
+  - [LinkedList](#linkedlist).
 
 
 ## Ambientes
