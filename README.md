@@ -91,6 +91,7 @@ Fundamentos de Java
  - [Listas](#list).
   - [ArraList](#arraylist).
   - [LinkedList](#linkedlist).
+  - [Pilas](#pilas).
 
 
 ## Ambientes
@@ -2557,3 +2558,76 @@ public class ListTest {
 
 
 ```
+
+### Pilas
+
+Las pilas son una estructura de datos, en la que el acceso está restringido al elemento más recientemente isertado. Se comporta en buena medida como una pila común de papeles, platos o periódicos. El último elemento añadido a la pila se coloca en la parte superior y es fácilmente accesible, mientras que resulta más difícil acceder a los elementos que han estado más tiempo en la pila. Por lo tanto, la pila es apropiada si esperamos acceder solo al elemento superior; todos los restantes elementos son innaccesibles.
+
+Las tres operaciones naturales en una pila son:
+
+1. push (insertar elemento).
+2. pop (remover elemento).
+3. top (encontrar elemento).
+
+Java dispone de una clase llamada **Stack**, para crear una estructura de datos en pila. Ejemplo:
+
+```java
+
+
+import java.util.Stack;
+import java.util.EmptyStackException;
+
+public class StackTest {
+  
+  public static void main(String[] args) {
+    
+    Stack<Number> stack = new Stack<>(); // crea la pila
+    
+    //usar el método push para agregar elementos a la pila.
+    stack.push(1);
+    System.out.println("Agregado el 1");
+    imprimirStack(stack);
+    stack.push(2);
+    System.out.println("Agregado el 2");
+    imprimirStack(stack);
+    stack.push(3);
+    System.out.println("Agregado el 3");
+    imprimirStack(stack);
+    stack.push(4);
+    System.out.println("Agregado el 4");
+    imprimirStack(stack);
+    stack.push(5);
+    System.out.println("Agregado el 5");
+    imprimirStack(stack);
+    
+    //remover elementos de la pila
+    try {
+      Number removerObjeto = null;
+      
+      while(true){
+        removerObjeto = stack.pop(); //retira el elemento que está en la cima de la pila.
+        System.out.printf("Retirado el %s\n", removerObjeto);
+        imprimirStack(stack);
+      } // fin while
+    } catch (EmptyStackException ex){
+      System.out.println("Error de tipo: " + ex);
+    }
+    
+    
+  }
+
+  // imprimir la pila
+  private static void imprimirStack(Stack<Number> stack) {
+    if (stack.isEmpty()){
+      System.out.println("La pila está vacía...");
+    } else {
+      System.out.printf("La pila contiene: %s (top)\n", stack);
+    }
+  }
+  
+}
+
+
+```
+
+>La clase Stack extiende de la clase Vector, para implementar la estructura de datos en pila.
