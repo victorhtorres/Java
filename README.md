@@ -92,6 +92,7 @@ Fundamentos de Java
   - [ArraList](#arraylist).
   - [LinkedList](#linkedlist).
   - [Pilas](#pilas).
+  - [Colas](#colas).
 
 
 ## Ambientes
@@ -2631,3 +2632,53 @@ public class StackTest {
 ```
 
 >La clase Stack extiende de la clase Vector, para implementar la estructura de datos en pila.
+
+
+### Colas
+
+La Cola es otra estructura de datos que representa una linea de espera, donde los elementos que se van insertando iran al final de la estructura, como una cola de personas esperando un turno para ser atendidos. Para consultar la cola, se debe hacer por el inicio de ella, donde el primer elemento a consultar es el primero en la cola y se debe eliminar de ella para conocer el siguiente. Esto se le conoce como el término del "Pimero que entra, es el primero que sale" FIFO (First in, first out) a diferencia de la pila que es "El último que entra, es el último que sale" LIFO (Last in, first out).
+
+Java tiene dos interfaces disponibles para la construcción de esta estructura: **Queue** y **PriorityQueue**.
+
+**Queue**
+
+La interfaz Queue extiende de la interfaz Collection y provee operaciones adiconales para la insertar, remover e inspeccionar los elementos de la cola.
+
+**PriorityQueue**
+
+Implementa de la interfaz Queue y lo que hace es ordenar los elementos en la cola por su orden natural especificado con la clase Comparable, por medio de su método compareTo o por medio de un objeto Comparator que es suministrado por el constructor.
+
+Las operaciones naturales en una cola, son:
+
+1. offer (insertar elemento en orden de llegada).
+2. poll (remueve el elemento con mayor prioridad en la cola).
+3. peek (obtener una referencia del elemento con mayor prioridad, sin removerlo).
+4. clear (remueve todos los elementos de la cola, por prioridad).
+5. size (el número de elementos en la cola).
+
+```java
+
+import java.util.PriorityQueue;
+
+public class QueueTest {
+  
+  public static void main(String[] args) {
+    
+    PriorityQueue<Double> cola = new PriorityQueue<>(); // crea la cola
+    
+    // insertar elementos a la cola con prioridad y en orden de tamaño.
+    cola.offer(1.5);
+    cola.offer(2.5);
+    cola.offer(5.0);
+    cola.offer(4.0);
+    
+    while(cola.size()>0){
+      System.out.printf("%.1f ", cola.peek()); // mira cual es el elemento con mayor prioridad en la cola y lo imprime en consola.
+      cola.poll(); // remueve elemento en orden de prioridad.
+    }
+    
+  }
+  
+}
+
+```
