@@ -93,6 +93,7 @@ Fundamentos de Java
   - [LinkedList](#linkedlist).
   - [Pilas](#pilas).
   - [Colas](#colas).
+  - [Sets](#sets).
 
 
 ## Ambientes
@@ -2677,6 +2678,52 @@ public class QueueTest {
       cola.poll(); // remueve elemento en orden de prioridad.
     }
     
+  }
+  
+}
+
+```
+
+### Sets
+
+Es una colección de datos desordenados, la cual no permite los elementos duplicados. Existe una amplia colección en la libreria de Java, algunos de ellos son los **HashSet** y **TreeSet**. Los hashSet almacena los elementos en una tabla hash. Una tabla Hash es un contenedor asociativo (tipo Diccionario) que permite un almacenamiento y posterior recuperación eficientes de elementos (denominados valores) a partir de otros objetos, llamados claves. La implementación TreeSet, almacena los datos en una estructura de arbol.
+
+Ejemplo: Imprimir la lista de colores que no están repetidos en la colección.
+
+```java
+
+
+import java.util.List;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.Collection;
+
+public class SetTest {
+  
+  public static void main(String[] args) {
+    
+    // crear y mostrar la lista de colores
+    String[] colors = {"red", "white", "blue", "green", "gray",
+                      "orange", "tan", "white", "cyan", "peach", "gray", "orange"};
+    List<String> list = Arrays.asList(colors);
+    System.out.printf("Lista de colores %s\n", list);
+    
+    
+    // eliminar duplicados
+    mostrarNoDuplicados(list);
+    
+  }
+
+  private static void mostrarNoDuplicados(List<String> list) {
+    Set<String> set = new HashSet<>(list);
+    System.out.print("\nColores no duplicados: ");
+    
+    for(String elemento: set){
+      System.out.printf("%s ", elemento);
+    }
+    
+    System.out.println();
   }
   
 }
