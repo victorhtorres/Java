@@ -2686,7 +2686,7 @@ public class QueueTest {
 
 ### Sets
 
-Es una colección de datos desordenados, la cual no permite los elementos duplicados. Existe una amplia colección en la libreria de Java, algunos de ellos son los **HashSet** y **TreeSet**. Los hashSet almacena los elementos en una tabla hash. Una tabla Hash es un contenedor asociativo (tipo Diccionario) que permite un almacenamiento y posterior recuperación eficientes de elementos (denominados valores) a partir de otros objetos, llamados claves. La implementación TreeSet, almacena los datos en una estructura de arbol.
+Es una colección de datos desordenados, la cual no permite los elementos duplicados. Existe una amplia colección en la libreria de Java para su implementación, algunos de ellos son los **HashSet** y **TreeSet**. Los hashSet almacena los elementos en una tabla hash. Una tabla Hash es un contenedor asociativo (tipo Diccionario) que permite un almacenamiento y posterior recuperación eficientes de elementos (denominados valores) a partir de otros objetos, llamados claves. La implementación TreeSet, almacena los datos en una estructura de arbol.
 
 Ejemplo: Imprimir la lista de colores que no están repetidos en la colección.
 
