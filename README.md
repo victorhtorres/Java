@@ -94,6 +94,7 @@ Fundamentos de Java
   - [Pilas](#pilas).
   - [Colas](#colas).
   - [Sets](#sets).
+  - [Mapas](#mapas).
 
 
 ## Ambientes
@@ -2727,5 +2728,80 @@ public class SetTest {
   }
   
 }
+
+```
+
+### Mapas
+
+Los mapas son una asociación de clave - valor. La clave en un mapa debe ser único, pero el valor asociado a ella no es necesario que sea único en el mapa. Si un mapa contiene dos claves únicas y valores únicos, se dice que el mapeo está implementado en **uno a uno**. Si sólo las claves son únicas, entonces se dice que el mapeo está implementado en **uno a muchos** (muchas claves pueden asignar un valor).
+
+Los Maps se diferencia de los Sets, porque en los Maps contiene claves y valores, en los Sets contiene sólo valores. Existen cantidades de interfaces para implementar un Map en Java, algunos de ellos son: **HashTable**, **HashMap** y **TreeMap**.
+
+Ejemplo: En una cadena de texto, realizar un conteo de cuantas veces se repite cualquier palabra de la cadena.
+
+```java
+
+
+import java.util.Map;
+import java.util.HashMap;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.Scanner;
+
+
+
+public class MapTest {
+  
+  public static void main(String[] args) {
+    
+    //Mapa creado para guardar las claves en String y los valores en Integer.
+    Map<String, Integer> myMap = new HashMap<>();
+    
+    createMap(myMap);
+    displayMap(myMap);
+    
+  }
+
+  private static void createMap(Map<String, Integer> map) {
+    Scanner scanner = new Scanner(System.in);
+    System.out.println("Ingrese una cadena:");
+    String input = scanner.nextLine();
+    
+    // toma la cadena ingresada y guarda las palabras en un array
+    String[] arrayWords = input.split(" ");
+    
+    for(String elemento: arrayWords){
+      String word = elemento.toLowerCase(); //Convierte cada palabra en Minuscúla.
+      
+      //si en el mapa contiene la palabra
+      if(map.containsKey(word)){
+        int count = map.get(word);
+        map.put(word, count + 1); // Actualiza la cantidad de veces que aparece la palabra.
+      } else {
+        map.put(word, 1); // agrega la clave y el valor.
+      } // fin if
+    } // fin for
+    
+  } // fin método createMap
+
+  private static void displayMap(Map<String, Integer> map) {
+    
+    Set<String> keys = map.keySet(); //trae todas las llaves y las guarda en un tipo Set.
+    
+    //Ordenar las llaves
+    TreeSet<String> sortedKeys = new TreeSet<>(keys);
+    
+    System.out.println("\nEl mapa contiene:\nLlave\t\tValor");
+    
+    //Mostrar en consola cada llave del mapa
+    for(String elemento: sortedKeys){
+      System.out.printf("%-10s%10s\n", elemento, map.get(elemento));
+    }
+    
+    System.out.printf("\ntamaño: %d\nEstá vacío: %b\n", map.size(), map.isEmpty());
+  }
+  
+}
+
 
 ```
