@@ -95,8 +95,8 @@ Fundamentos de Java
   - [Colas](#colas).
   - [Sets](#sets).
   - [Mapas](#mapas).
- - [Clases y métodos genéricos](#clases-y-metodos-genericos).
-  - [Interfaz Comparable](#interfaz-comparable).
+- [Clases y métodos genéricos](#clases-y-metodos-genericos).
+ - [Interfaz Comparable](#interfaz-comparable).
 
 
 ## Ambientes
