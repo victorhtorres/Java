@@ -95,6 +95,8 @@ Fundamentos de Java
   - [Colas](#colas).
   - [Sets](#sets).
   - [Mapas](#mapas).
+ - [Clases y métodos genéricos](#clases-y-metodos-genericos).
+  - [Interfaz Comparable](#interfaz-comparable).
 
 
 ## Ambientes
@@ -2805,3 +2807,143 @@ public class MapTest {
 
 
 ```
+
+## Clases y metodos genericos
+
+Los métodos genéricos permiten especificar, con una sóla declaración de método, un conjunto de métodos relacionados. Las clases genéricas (e interfaces) le permiten especificar, con una declaración de una sóla clase (o interfaz), un conjunto de tipos relacionados, respectivamente. En otras palabras, los genéricos sirven para permitir que métodos o clases puedan operar con distintos tipos de objetos, proporcionando seguridad en tiempo de compilación, lo que nos permite crear código más legible y mucho más robusto.
+
+>Los métodos y clases genéricas se encuentran entre una de la más poderosas capacidades de Java para la reutilización del software con la seguridad de tipos en tiempo de compilación.
+
+Ejemplo: Imprimiendo los elementos de distintos arrays con métodos sobrecargados. Al final, en vez de utilizar métodos sobrecargados, vamos a usar un método genérico que reemplace el código del método printArray.
+
+```java
+
+
+public class MetodosSobreCargados {
+  
+  public static void main(String[] args) {
+    
+    //Crear disntitos tipos de arrays de tipo referencia
+    Integer[] integerArray = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    Double[] doubleArray = {1.0, 2.0, 3.0, 4.0, 5.0};
+    Character[] characterArray = {'H', 'E', 'L', 'L', 'O', 'W', 'O', 'R', 'L', 'D'};
+    
+    //Imprimir los arrays
+    System.out.println("Array de Integer contiene:");
+    printArray(integerArray);
+    System.out.println("Array de Double contiene:");
+    printArray(doubleArray);
+    System.out.println("Array de Character contiene:");
+    printArray(characterArray);
+    
+  }
+
+  private static void printArray(Integer[] integerArray) {
+    
+    //mostrar contenido del array
+    for(Integer elemento: integerArray){
+      System.out.printf("%s ", elemento);
+    }
+    System.out.println();
+  }
+
+  private static void printArray(Double[] doubleArray) {
+    //mostrar contenido del array
+    for(Double elemento: doubleArray){
+      System.out.printf("%s ", elemento);
+    }
+    System.out.println();
+  }
+
+  private static void printArray(Character[] characterArray) {
+    //mostrar contenido del array
+    for(Character elemento: characterArray){
+      System.out.printf("%s ", elemento);
+    }
+    System.out.println();
+  }
+  
+}
+
+
+```
+
+El método sobrecargado printArray() se puede reemplazar por uno genérico, que reciba cualquier tipo de objeto y de esta forma, con un sólo método se podrá imprimir cualquier tipo de array:
+
+```java
+
+	// por convención, los métodos y las clases genéricas les llaman de tipo T
+  private static <T> void printArray(T[] array) {
+    
+    //mostrar los elementos del array
+    for(T elemento: array){
+      System.out.printf("%s ", elemento);
+    }
+    System.out.println();
+  }
+
+```
+
+Un método genérico, tiene la siguiente sintaxis:
+
+```txt
+
+<<ModificadorAcceso>> <<Type>> <<TipoRetorno>> <<NombreMetodo>>(<Type> parametros...) {
+	// cuerpo del método.
+}
+
+```
+
+Donde <Type>, por convención, le llaman <T>.
+
+
+
+### Interfaz Comparable
+
+Sirve para comparar dos variables de tipo referencia, ya que dos objetos no se pueden comparar con operadores relacionales. La clase debe implementar la interfaz Comparable<T>, para hacer uso del método compareTo.
+
+Sintaxis:
+
+`objeto1.compareTo(objeto2)`
+
+Es responsabilidad del desarrollador, el de sobreescribir el método compareTo y adaptar los resultados según su necesidad. Lo básico a tener en cuenta es:
+
+- compareTo debe retornar el valor entero cero, si los objetos son iguales.
+- compareTo debe retornar un valor entero negativo, si el objeto1 es menor que el objeto2.
+- compareTo debe retornar un valor entero positivo, si el objeto1 es mayor que el objeto2.
+
+Ejemplo: El siguiente método genérico devuelve el mayor de los tres objetos.
+
+```java
+
+
+
+public class MaximumTest {
+
+  public static void main(String[] args) {
+    
+    System.out.printf("Maxímo de %d, %d y %d es %d\n", 3, 4, 5, maximum(3, 4, 5));
+    
+  }
+  
+  // Determina cual de los tres objetos es más grande
+  private static< T extends Comparable< T > > T maximum(T x, T y, T z) {
+    T max = x; //asumimos que x es el mayor por el momento.
+    
+    if(y.compareTo(max) > 0){
+      max = y;
+    }
+    
+    if(z.compareTo(max) > 0){
+      max = z;
+    }
+    
+    return max;
+  }
+  
+}
+
+
+```
+
+
