@@ -97,6 +97,7 @@ Fundamentos de Java
   - [Mapas](#mapas).
 - [Clases y métodos genéricos](#clases-y-metodos-genericos).
  - [Interfaz Comparable](#interfaz-comparable).
+ - [Clases genericas](#clases-genericas).
 
 
 ## Ambientes
