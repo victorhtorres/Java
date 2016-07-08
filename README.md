@@ -3098,3 +3098,57 @@ public class StackTest {
 }
 
 ```
+Como los métodos testPushDouble y testPushInteger, al igual que, los métodos testPopDouble y testPopInteger, tienen el mismo funcionamiento pero solo varía el tipo de parámetro, entonces existe la oportunidad de convertir estos cuatros métodos en solo dos métodos (testPush y testPop), usando los métodos genéricos:
+
+```java
+
+
+import java.util.EmptyStackException;
+
+
+public class StackTest {
+
+    public static void main(String[] args) {
+
+        Double[] doubleElements = {1.1, 2.2, 3.3, 4.4, 5.5};
+        Integer[] integerElements = {1, 2, 3, 4, 5};
+
+        Stack< Double> doubleStack = new Stack<>(5);
+        Stack< Integer> integerStack = new Stack<>();
+
+        testPush("DoubleStack", doubleStack, doubleElements);
+        testPop("Double", doubleStack);
+
+        testPush("integerStack", integerStack, integerElements);
+        testPop("Integer", integerStack);
+
+    } // fin del main
+
+    public static < T > void testPush(String nombrePila, Stack< T > stack, T[] elements){
+        System.out.println("\nColocando elementos en " + nombrePila);
+        
+        for(T elemento: elements){
+            System.out.printf("%s ", elemento);
+            stack.push(elemento);
+        }
+    }
+    
+    public static < T > void testPop(String nombre, Stack< T > stack){
+        try{
+            System.out.println("\nRetirando elementos de la pila de " + nombre);
+            T popValue;
+            
+            while(true){
+                popValue = stack.pop();
+                System.out.printf("%s ", popValue);
+            }
+        }catch(EmptyStackException e){
+            System.err.println();
+            e.printStackTrace();
+        }
+    }
+
+}
+
+
+```
