@@ -98,7 +98,7 @@ Fundamentos de Java
 - [Clases y métodos genéricos](#clases-y-metodos-genericos).
  - [Interfaz Comparable](#interfaz-comparable).
  - [Clases genericas](#clases-genericas).
-
+ - [Wildcards](#wildcards).
 
 ## Ambientes
 
@@ -3150,5 +3150,51 @@ public class StackTest {
 
 }
 
+
+```
+
+### Wildcards
+
+Los wildcards o comodines en Java, es la forma de denotar un tipo de dato que aún no se conoce de que tipo será. Denotado por medio del simbolo de interrogación `?` y encerrado entre `< >`, como si fuera un receptáculo: `<?>`.
+
+Ejemplo: Un método que recibe como parámetro diferentes tipos de arreglo (Integer, Double, Number).
+
+```java
+
+Number [] numbers =  {1, 2, 3, 4, 5};
+ArrayList< Number > numberList = new ArrayList<>();
+
+for (Number elemento: numberList) {
+  numberList.add(elemento); // agrega cada número del arreglo en el ArrayList.
+}
+
+Integer [] integers =  {1, 2, 3, 4, 5};
+ArrayList< Integer > intergerList = new ArrayList<>();
+
+for (Integer elemento: intergerList) {
+  intergerList.add(elemento); // agrega cada número del arreglo en el ArrayList.
+}
+
+Double [] doubles =  {1.1, 2.1, 3.1, 4.1, 5.1};
+ArrayList< Double > doubleList = new ArrayList<>();
+
+for (Double elemento: doubleList) {
+  doubleList.add(elemento); // agrega cada número del arreglo en el ArrayList.
+}
+
+suma(numberList);
+suma(intergerList);
+suma(doubleList);
+
+// Método para calcular la suma del total de los valores en cada ArrayList. Recibe cualquier tipo de subclase de la superclase Number, por medio del comodin.
+public static double suma(ArrayList< ? extends Number > lista) {
+  double total = 0;
+
+  for (Number elemento: list) {
+    total += elemento.doubleValue();
+  }
+
+  return total;
+}
 
 ```
