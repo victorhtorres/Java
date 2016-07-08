@@ -3032,8 +3032,8 @@ public class StackTest {
 
     public static void main(String[] args) {
 
-        double[] doubleElements = {1.1, 2.2, 3.3, 4.4, 5.5};
-        int[] integerElements = {1, 2, 3, 4, 5};
+        Double[] doubleElements = {1.1, 2.2, 3.3, 4.4, 5.5};
+        Integer[] integerElements = {1, 2, 3, 4, 5};
 
         Stack< Double> doubleStack = new Stack<>(5);
         Stack< Integer> integerStack = new Stack<>();
