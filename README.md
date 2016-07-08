@@ -107,7 +107,7 @@ Existe dos ambientes que se viven en la práctica en Java:
 
 2. El usuario final: Conocido como **JRE** (Java Runtime Enviroment): Esto se le conoce como máquina virtual de java, que es un plugin en el cual se instala en las máquinas para que permita correr el programa creado en el lenguaje de programación java. Hoy en día este plugin viene instalado ya por defecto en la mayoría de exploradores de internet y sistemas operativos.
 
->Si el programa en java no corre en su equipo, es probable que deba descargar e instalar manualmente el plugin o complemento JRE, que está disponible en la página oficial de Oracle. 
+>Si el programa en java no corre en su equipo, es probable que deba descargar e instalar manualmente el plugin o complemento JRE, que está disponible en la página oficial de Oracle.
 
 La máquina virtual de Java (JRE) se utiliza por seguridad, para proteger tu código fuente contra personas inescrupulosas. De esta seguridad se encarga el equipo de desarrolladores Java y por eso este lenguaje es tan usado en el entorno empresarial, por su gran confiabilidad, aunque, como todos ya debemos de saber que no hay nada 100% seguro en lo que respecta a seguridad.
 
@@ -155,11 +155,11 @@ import javax.swing.*; //Importo toda las libreria swing.
 public class MiPrimeraAppEnJava {
 
     public static void main(String[] args) {
-      
+
         JOptionPane.showMessageDialog(null,"Hola Mundo!"); //Muestro en pantalla el mensaje "Hola Mundo!"
-        
+
     }
-    
+
 }
 
 ```
@@ -185,9 +185,9 @@ Existe dos formas de comentar el código en Java:
 
 ```java
 
-/* 
+/*
 
-Esto es 
+Esto es
 
 un comentario
 
@@ -221,7 +221,7 @@ Una variable es un nombre que contiene un valor que puede cambiar a lo largo del
 
 Están definidas mediante un valor único que puede ser entero, de punto flotante, carácter o booleano. Java permite distinta precisión y distintos rangos de valores para estos tipos de variables (char, byte, short, int, long, float, double, boolean). Ejemplos de variables de tipo primitivo podrían ser: 123, 3456754, 3.1416, 12e-09, 'A', TRUE, etc...
 
-### 2. Variables de tipo referencias: 
+### 2. Variables de tipo referencias:
 
 Son objetos en java de una determinada clase y no hacen parte del sistema operativo, como por ejemplo: arrays (arreglos), String (cadenas), etc... Una forma de indentificarlos es cuando los declaran en el tipo de la variable:
 
@@ -405,7 +405,7 @@ if (Expresión lógica 1) {
 	}else if(Expresión lógica 3){
 
 			[bloque de instrucciones 3]
-			
+
 			}else{
 
 				[bloque de instrucciones 4]
@@ -448,52 +448,52 @@ Ejemplo:
 
 ```java
 
-// Escriba un algoritmo que permita mostrar la equivalencia en número decimal de los números romanos (I,V,X,L,C,D,M). 
+// Escriba un algoritmo que permita mostrar la equivalencia en número decimal de los números romanos (I,V,X,L,C,D,M).
 
 import javax.swing.*;
- 
+
 public class EjemploEstructuraDecision {
- 
+
     public static void main(String args[]) {
- 
+
         char x;
- 
+
         x = JOptionPane.showInputDialog("Digite algunos de los siguientes números romanos [I,V,X,L,C,D,M]: ").charAt(0);
         //Al final se le pone .charAt(0) para tomar el primer valor que digite el usuario en teclado.
- 
+
         x -= 32; //Esto convierte la letra en mayuscula (por si el usuario lo escribe en minuscula...). De mayuscula a minuscula se suma 32.
- 
+
         switch (x) {
             case 'I':
                 JOptionPane.showMessageDialog(null, "La letra " + x + " corresponde al número 1");
                 break;
             case 'V':
                 JOptionPane.showMessageDialog(null, "La letra " + x + " corresponde al número 5");
- 
+
                 break;
             case 'X':
                 JOptionPane.showMessageDialog(null, "La letra " + x + " corresponde al número 10");
- 
+
                 break;
             case 'L':
                 JOptionPane.showMessageDialog(null, "La letra " + x + " corresponde al número 50");
- 
+
                 break;
             case 'C':
                 JOptionPane.showMessageDialog(null, "La letra " + x + " corresponde al número 50");
- 
+
                 break;
             case 'D':
                 JOptionPane.showMessageDialog(null, "La letra " + x + " corresponde al número 500");
- 
+
                 break;
             case 'M':
                 JOptionPane.showMessageDialog(null, "La letra " + x + " corresponde al número 1000");
                 break;
- 
+
             default:
                 JOptionPane.showMessageDialog(null, "Error: Digite I,V,X,L,C,D,M ");
- 
+
         }//Fin del switch
     }
 }//Fin del programa
@@ -559,7 +559,7 @@ Ejemplo:
     arreglo[0] = "Victor";
     arreglo[1] = "Jaime";
     arreglo[2] = "Harry";
-    
+
     for (String elemento : arreglo){
       System.out.println(elemento);
     }
@@ -600,36 +600,36 @@ public class EstructuraWhile {
         n = Integer.parseInt(
                 JOptionPane.showInputDialog("Digite el exponente: ")
                 );
- 
- 
- 
+
+
+
         if (n>=0){
- 
+
             i=1; //Debo darle valor a la variable que va a servir como contador antes de entrar al bucle.
- 
+
             while(i<=n){
                 p*=x;
                 i++; //Aquí modifico el contador porque sino entonces me quedaría un bucle infinito.
             }
         }
- 
+
         else{
- 
+
             i=-1;
- 
+
             while(i>=n){
                 p*=1/x;
                 i--;
             }
- 
+
         }
- 
+
         System.out.println("La potencia es = " + p);
- 
+
         /*Supongamos que el usuario digite como base x=5 y como exponente n=2, entonces el resultado que debe mostrar en pantalla es: La potencia es = 25
          * Supongamos que el usuario digite como base x=5 y como exponente n=-2, entonces el resultado que debe mostrar en pantalla es: La potencia es 0.04
          */
- 
+
     }
 } //fin del programa
 
@@ -659,17 +659,17 @@ import javax.swing.*;
 
 public class do_whileee {
    public static void main (String args[]){
-       
+
        double x, p=1;
        int n, i=1;
-       
+
        x = Double.parseDouble(
                JOptionPane.showInputDialog("Digite la base: ")
                );
        n = Integer.parseInt(
                JOptionPane.showInputDialog("Digite el exponente: ")
                );
-       
+
        if(n>=0){
            do{
                p*=x;
@@ -681,13 +681,13 @@ public class do_whileee {
                i--;
            }while(i>=n);
        }
-       
+
        System.out.println("La pontencia es: " + p);
- 
+
         /*Supongamos que el usuario digite como base x=5 y como exponente n=2, entonces el resultado que debe mostrar en pantalla es: La potencia es = 25
          * Supongamos que el usuario digite como base x=5 y como exponente n=-2, entonces el resultado que debe mostrar en pantalla es: La potencia es 0.04
          */
- 
+
     }
 }
 
@@ -784,7 +784,7 @@ Sintaxis:
 ```java
 
 for(int i=0; i < biarreglo.length; i++){
-	
+
 	for(int j=0; j < biarreglo[i].length; j++){
 
 		// Bloque de instrucciones
@@ -802,7 +802,7 @@ Se trata de recorrer todo el arreglo, comparando dato por dato, hasta encontrar 
 ```java
 
 // Verificar si en el arreglo denominado "carreras" se ha almacenado la carrera "Ingeniería Informática".
- 
+
 for (int i=0 ; i< carreras.length ; i++){
 
 	if (carreras[i].equals (“Ingeniería Informática”){
@@ -859,7 +859,7 @@ En tiempos de ejecución ([Big O](#notacion-big-o)), la búsqueda binaria se com
 ```java
 
 // Cuantos estudiantes del curso de Java, aprobaron y cuantos reprobaron.
- 
+
 int aprobaron=0, reprobaron=0; // Contadores
 
 for (int i=0 ; i< notas.length ; i++){
@@ -898,7 +898,7 @@ Ejemplo:
 ```java
 
 //Encuentre la nota mas alta y la mas baja del curso de Java.
- 
+
 double mayor=0, menor=5;
 
 for (int i=0 ; i< notas.length ; i++){
@@ -910,7 +910,7 @@ for (int i=0 ; i< notas.length ; i++){
                 menor = notas[i];
 }
 
-JOptionPane.showMessageDialog (null, “La nota más alta fue: “ + mayor + 
+JOptionPane.showMessageDialog (null, “La nota más alta fue: “ + mayor +
 									“\nLa nota mas baja fue: ” + menor);
 
 ```
@@ -926,7 +926,7 @@ Ejemplo:
 ```java
 
 // Encuentre el mayor y el menor de un grupo de números reales cualquiera.
- 
+
 double mayor=numeros[0], menor=numeros[0];
 
 for (int i=0 ; i< numeros.length ; i++){
@@ -938,7 +938,7 @@ for (int i=0 ; i< numeros.length ; i++){
                 menor = numeros [i];
 }
 
-JOptionPane.showMessageDialog (null, “El número mayor es: “ + mayor + 
+JOptionPane.showMessageDialog (null, “El número mayor es: “ + mayor +
 										“\nEl número menor es: ” + menor);
 
 ```
@@ -958,13 +958,13 @@ Para definir una clase en JAVA, se emplea la palabra clave `class` seguida por e
 
 Ejemplo:
 
-class Circulo 
+class Circulo
 class Pago
-class Caja 
+class Caja
 class Televisor
-class Empleado 
+class Empleado
 class Rectangulo
-class Cliente 
+class Cliente
 class Libro
 
 **Forma de una clase:**
@@ -1088,7 +1088,7 @@ public class Circulo {
 public double radio; // declaración de atributo
 
 public void setRadio ( double r ) { // cambia el valor del atributo radio por el valor
-	
+
 	radio = r;
 
 	}
@@ -1114,7 +1114,7 @@ Ejemplo utilizando los atributos comunes de una clase llamada Persona:
 
 
 public class Persona {
-  
+
   private String nombre;
   private int edad;
   private String id;
@@ -1124,7 +1124,7 @@ public class Persona {
     this.edad = edad;
     this.id = id;
   }
-  
+
 
   public String getNombre() {
     return nombre;
@@ -1133,7 +1133,7 @@ public class Persona {
   public void setNombre(String nombre) {
     this.nombre = nombre;
   }
-  
+
   public int getEdad() {
     return edad;
   }
@@ -1149,7 +1149,7 @@ public class Persona {
   public void setId(String id) {
     this.id = id;
   }
-  
+
   @Override // Esto indica que una declaración de método está destinado a anular una declaración de método en una superclase.
   public String toString(){
     return "Nombre: " + nombre + "\nEdad: " + edad + "\nId: " + id;
@@ -1243,7 +1243,7 @@ import java.util.Calendar;
 
 public class PruebaFechaHora
 {
-   public static void main( String[] args ) 
+   public static void main( String[] args )
    {
       // obtiene la fecha y hora actuales
       Calendar fechaHora = Calendar.getInstance();
@@ -1320,14 +1320,14 @@ Ejemplo:
 public class Main {
 
   public static void main(String[] args) {
-      System.out.printf( 
-         "Lista de parametros sin reordenar: %s %s %s %s\n", 
+      System.out.printf(
+         "Lista de parametros sin reordenar: %s %s %s %s\n",
          "1er", "2do", "3er", "4to" );
-         
+
          // imprime: 1er 2do 3er 4to
-         
-      System.out.printf( 
-         "Lista de parametros despues de reordenar: %4$s %3$s %2$s %1$s\n", 
+
+      System.out.printf(
+         "Lista de parametros despues de reordenar: %4$s %3$s %2$s %1$s\n",
          "1er", "2do", "3er", "4to" );
         // imprime: 4to 3er 2do 1er
   }
@@ -1346,7 +1346,7 @@ public class Main {
 | \\			 | Imprime el carácter barra diagonal inversa |
 | \b			 | Desplaza el cursor una posición hacia atrás en la línea atual |
 | \f			 | Desplaza el cursor al principio de la siguiente página lógica |
-| \n			 | Desplaza el cursor al principio de la siguiente línea | 
+| \n			 | Desplaza el cursor al principio de la siguiente línea |
 | \r			 | Desplaza el cursor al principio de la línea actual |
 | \t			 | Desplazar el cursor hacia la siguiente posición del tabulador horizontal |
 
@@ -1359,7 +1359,7 @@ Ejemplo:
 ```java
 
 public class Circulo{
-	
+
 	private double radio;		// atributo.
 
 	Circulo(){					// El constructor puede tener parámetros.
@@ -1405,7 +1405,7 @@ int tmp;
 
 for ( int i = 0; i < a.length; i++) {
 	for ( int j = 0; j < a.length - 1; j++) {
-		
+
 		if (a [ j ] > a [ j+1 ] ) {
 			tmp = a [ j ];
 			a [ j ] = a [ j+1 ];
@@ -1449,7 +1449,7 @@ Método:
          } // fin for interno
 
          intercambiar( i, masPequenio ); // intercambia el elemento más pequeño en la posición
-         
+
       } // fin de for exterior
    } // fin del método ordenar
 
@@ -1483,10 +1483,10 @@ Método:
       for ( int siguiente = 1; siguiente < datos.length; siguiente++ )
       {
          // almacena el valor en el elemento actual
-         insercion = datos[ siguiente ]; 
+         insercion = datos[ siguiente ];
 
          // inicializa ubicación para colocar el elemento
-         int moverElemento = siguiente; 
+         int moverElemento = siguiente;
 
          // busca un lugar para colocar el elemento actual
          while ( moverElemento > 0 && datos[ moverElemento - 1 ] > insercion )
@@ -1529,7 +1529,7 @@ Método:
    } // fin del método ordenar
 
    // divide el arreglo, ordena los subarreglos y los combina en un arreglo ordenado
-   private void ordenarArreglo( int inferior, int superior ) 
+   private void ordenarArreglo( int inferior, int superior )
    {
       // evalúa el caso base; el tamaño del arreglo es igual a 1
       if ( ( superior - inferior ) >= 1 ) // si no es el caso base
@@ -1545,26 +1545,26 @@ Método:
          combinar ( inferior, medio1, medio2, superior );
       } // fin de if
    } // fin del método ordenarArreglo
-   
+
    // combina dos subarreglos ordenados en un subarreglo ordenado
-   private void combinar( int izquierdo, int medio1, int medio2, int derecho ) 
+   private void combinar( int izquierdo, int medio1, int medio2, int derecho )
    {
       int indiceIzq = izquierdo; // índice en subarreglo izquierdo
       int indiceDer = medio2; // índice en subarreglo derecho
       int indiceCombinado = izquierdo; // índice en arreglo de trabajo temporal
       int[] combinado = new int[ datos.length ]; // arreglo de trabajo
-    
+
       // combina los arreglos hasta llegar al final de uno de ellos
       while ( indiceIzq <= medio1 && indiceDer <= derecho )
       {
          // coloca el menor de dos elementos actuales en el resultado
          // y lo mueve al siguiente espacio en los arreglos
          if ( datos[ indiceIzq ] <= datos[ indiceDer ] )
-            combinado[ indiceCombinado++ ] = datos[ indiceIzq++ ]; 
-         else 
+            combinado[ indiceCombinado++ ] = datos[ indiceIzq++ ];
+         else
             combinado[ indiceCombinado++ ] = datos[ indiceDer++ ];
       } // fin de while
-   
+
       // si el arreglo izquierdo está vacío
       if ( indiceIzq == medio2 )
          // copia el resto del arreglo derecho
@@ -1572,7 +1572,7 @@ Método:
             combinado[ indiceCombinado++ ] = datos[ indiceDer++ ];
       else // el arreglo derecho está vacío
          // copia el resto del arreglo izquierdo
-         while ( indiceIzq <= medio1 ) 
+         while ( indiceIzq <= medio1 )
             combinado[ indiceCombinado++ ] = datos[ indiceIzq++ ];      
 
       // copia los valores de vuelta al arreglo original
@@ -1598,7 +1598,7 @@ Ejemplo:
 ```java
 
 class Empleado{
-	
+
 	double calcular_salario(){	// no recibe parámetros.
 
 		return salario_mensual;
@@ -1617,7 +1617,7 @@ class Empleado{
 		return salario_mensual * (1-descuento);
 
 	}
-	
+
 }
 
 ```
@@ -1630,7 +1630,7 @@ Ejemplo:
 ```java
 
 public class Circulo{
-	
+
 	private double radio;		// atributo.
 
 	Circulo(){					// Constructor sin parámetros de entrada.
@@ -1825,11 +1825,11 @@ Ejemplo:
 
 ## Polimorfismo
 
-El polimorfismo nos permite programar de forma general, en vez de programar en forma especifica. En particular, nos permite escribir programas que procesen objetos que compartan la misma superclase (ya sea de manera directa o indirecta) como si todos fueran objetos de la superclase; esto puede simplificar la programación. 
+El polimorfismo nos permite programar de forma general, en vez de programar en forma especifica. En particular, nos permite escribir programas que procesen objetos que compartan la misma superclase (ya sea de manera directa o indirecta) como si todos fueran objetos de la superclase; esto puede simplificar la programación.
 
 Con el polimorfismo podemos diseñar e implementar sistemas que puedan extenderse con facilidad; pueden agregarse nuevas clases con sólo modificar un poco (o nada) las porciones generales del programa siempre y cuando las nuevas clases sean parte de la jerarquía de herencia que el programa procesa en forma genérica.
 
-**Ejemplo de polimorfismo**: 
+**Ejemplo de polimorfismo**:
 
 Suponga que tenemos 3 clases. La clase Animal, que es una superclase abstracta con un método abstracto llamado mover y dos clases hijas de Animal, que son Perro y Ave. No podríamos implementar el método mover de la superclase, porque un perro no se mueve igual que un Ave, por lo tanto cada clase hija deberá implementar su propio método mover, que heredan de la clase padre.
 
@@ -1972,7 +1972,7 @@ public class Alumno
     private String nombre;
     private String apellido;
     private Integer edad;
- 
+
     public Alumno(String nombre, String apellido, Integer edad) throws Exception
     {
        this.nombre = nombre;
@@ -1983,23 +1983,23 @@ public class Alumno
             this.edad = edad;
         }
     }
- 
+
     public String getNombre() {
         return nombre;
     }
- 
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
- 
+
     public String getApellido() {
         return apellido;
     }
- 
+
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
- 
+
     public Integer getEdad() {
         return edad;
     }
@@ -2052,9 +2052,9 @@ public class Main {
 
     //caso general
     } else {
-    
+
       // se llama a si mismo dentro de su mismo cuerpo de instrucciones (recursividad directa):
-      return potenciaFormaRecursiva(b, --e) * b; 
+      return potenciaFormaRecursiva(b, --e) * b;
 
     }
 
@@ -2096,11 +2096,11 @@ public class Main {
       return metodoIndirecto(b, --e);
     }
   } // fin método recursivo
-  
+
   private static int metodoIndirecto(int b, int e){
-    
+
     return potenciaFormaRecursiva(b, e) * b; // llama de manera indirecta la recursión de la potencia.
-    
+
   } // fin metodo Indirecto
 
 } // fin class Main
@@ -2133,13 +2133,13 @@ Código:
   public int factorial(int n) {
 
     if (n == 0) {
-    
+
       return 1;
-      
+
     } else {
-    
+
       return fact(n - 1) * n;
-      
+
     }
 
   } // fin del método
@@ -2176,7 +2176,7 @@ Ejemplo con el caso factorial:
 
 ```
 
-## Notacion Big O: 
+## Notacion Big O:
 
 Es una forma de describir la cantidad de esfuerzo que requiere un algoritmo para realizar una tarea (por ejemplo, una búsqueda de datos), la cual indica el tiempo de ejecución para el peor caso de un algoritmo.
 
@@ -2184,7 +2184,7 @@ Para los casos de búsqueda y ordenamiento, esto depende especificamente de cúa
 
 **Algoritmos O(1)**
 
-Significa que el algoritmo tiene un tiempo de ejecución constante, en el sentido de que, el algoritmo requiere hacer una comparación y dicha comparación es constante (no crece a medida de que aumenta el tamaño del arreglo o la colección de datos) y es completamente independiente del número de elementos que tenga el arreglo o la colección de datos. 
+Significa que el algoritmo tiene un tiempo de ejecución constante, en el sentido de que, el algoritmo requiere hacer una comparación y dicha comparación es constante (no crece a medida de que aumenta el tamaño del arreglo o la colección de datos) y es completamente independiente del número de elementos que tenga el arreglo o la colección de datos.
 
 Ejemplo: comparar si el primer elemento de un arreglo es igual al segundo elemento (no importa si el arreglo tiene 1000 elementos, sigue siendo constante la forma en que compara).
 
@@ -2340,25 +2340,25 @@ public class Main {
     for (String color : removeColors) {
       removeList.add(color); // agrego los colores a borrar en la lista removeList
     }
-    
+
     // imprimo list
-    System.out.println("ArrayList: "); 
-    
+    System.out.println("ArrayList: ");
+
     for (int count = 0; count < list.size(); count++) {
       System.out.printf("%s ", list.get(count));
     }
-    
+
     // llamo el método para removerColors y le envío las dos listas.
     removeColors(list, removeList);
 
 
     // Imprime la lista después de haber borrado los colores seleccionados
     System.out.println("\n\nArrayList despues de llamar removeColors:");
-    
+
     for(String color: list) {
       System.out.printf("%s ", color);
     }
-    
+
   } // fin main
 
   // metodo para borrar los colores con dos listas
@@ -2370,9 +2370,9 @@ public class Main {
       if (removeList.contains(iterator.next())) { // busca los valores de removeList en el iterador, el cual tiene los valores de la lista list.
         iterator.remove(); // metodo para remover el elemento actual del iterador.
       }
-      
+
     } // fin while
-    
+
   } // fin removeColors
 
 } // fin class
@@ -2403,14 +2403,14 @@ public class ColeccionArrayList
    public static void main( String[] args )
    {
       // crea un nuevo objeto ArrayList de objetos String
-      ArrayList< String > elementos = new ArrayList< String >(); 
+      ArrayList< String > elementos = new ArrayList< String >();
 
       elementos.add("rojo" ); // adjunta un elemento a la lista          
       elementos.add( 0, "amarillo" ); // inserta el valor en el subíndice 0
 
       // encabezado
-      System.out.print( 
-         "Mostrar contenido de lista con ciclo controlado por contador:" ); 
+      System.out.print(
+         "Mostrar contenido de lista con ciclo controlado por contador:" );
 
       // muestra los colores en la lista
       for ( int i = 0; i < elementos.size(); i++ )
@@ -2421,14 +2421,14 @@ public class ColeccionArrayList
          "\nMostrar contenido de lista con instruccion for mejorada:" );
 
       elementos.add(0, "verde" ); // agrega "verde" al final de la lista
-      elementos.add(0, "amarillo" ); // agrega "amarillo" al final de la lista 
-      mostrar( elementos, "Lista con dos nuevos elementos:" ); 
+      elementos.add(0, "amarillo" ); // agrega "amarillo" al final de la lista
+      mostrar( elementos, "Lista con dos nuevos elementos:" );
 
       elementos.remove( "amarillo" ); // elimina el primer "amarillo"
-      mostrar( elementos, "Eliminar primera instancia de amarillo:" ); 
+      mostrar( elementos, "Eliminar primera instancia de amarillo:" );
 
       elementos.remove( 1 ); // elimina elemento en subíndice 1
-      mostrar( elementos, "Eliminar segundo elemento de la lista (verde):" ); 
+      mostrar( elementos, "Eliminar segundo elemento de la lista (verde):" );
 
       // verifica si hay un valor en la lista
       System.out.printf( "\"rojo\" %sesta en la lista\n",
@@ -2487,49 +2487,49 @@ import java.util.ListIterator;
 
 
 public class ListTest {
-  
+
   public static void main(String[] args) {
-    
+
     // arreglo de estudiantes
     String[] estudiantes = {"Harry", "Jaime", "Victor", "Katherine"};
     // Creo el objeto de tipo linkedList
     List<String> lista = new LinkedList<>();
-    
+
     //agrego los estudiantes a la lista
     for(String elemento: estudiantes){
       lista.add(elemento);
     }
-    
+
     // arreglo de más estudiantes
     String[] estudiantes2 = {"Carlos", "Beto", "Juanita", "Mercedes"};
     List<String> lista2 = new LinkedList<>();
-    
+
     for(String elemento: estudiantes2){
       lista2.add(elemento);
     }
-    
+
     // metodo para concatenar listas
     lista.addAll(lista2);
     lista2 = null;
-    
+
     //metodo para imprimir listas
     imprimirLista(lista);
-    
+
     //metodo para convertir los elementos de la lista en MAYUS
     convertirListaMayus(lista);
     imprimirLista(lista);
-    
+
     System.out.print("\nBorrando elementos desde 4 a 6...");
     removerItem(lista, 4, 7);
     imprimirLista(lista);
     imprimirListaRevertida(lista);
-    
-    
+
+
   }
 
   private static void imprimirLista(List<String> lista) {
     System.out.println("\nLista: ");
-    
+
     for(String elemento: lista){
       System.out.printf("%s ", elemento);
     }
@@ -2538,7 +2538,7 @@ public class ListTest {
 
   private static void convertirListaMayus(List<String> lista) {
     ListIterator<String> iterador = lista.listIterator();
-    
+
     while(iterador.hasNext()){
       String nombre = iterador.next(); // toma el valor del iterador, que sería el nombre de la lista
       iterador.set(nombre.toUpperCase()); // convierte el nombre en MAYUS y lo reemplaza en el valor del iterador.
@@ -2552,13 +2552,13 @@ public class ListTest {
   private static void imprimirListaRevertida(List<String> lista) {
     ListIterator<String> iterator = lista.listIterator(lista.size()); //devuelve el iterador con los elementos de la lista, colocandose en la posición final.
     System.out.println("\nLista revertida: ");
-    
+
     while(iterator.hasPrevious()){
       System.out.printf("%s ", iterator.previous());
     }
   }
-  
-  
+
+
 }
 
 
@@ -2583,11 +2583,11 @@ import java.util.Stack;
 import java.util.EmptyStackException;
 
 public class StackTest {
-  
+
   public static void main(String[] args) {
-    
+
     Stack<Number> stack = new Stack<>(); // crea la pila
-    
+
     //usar el método push para agregar elementos a la pila.
     stack.push(1);
     System.out.println("Agregado el 1");
@@ -2604,11 +2604,11 @@ public class StackTest {
     stack.push(5);
     System.out.println("Agregado el 5");
     imprimirStack(stack);
-    
+
     //remover elementos de la pila
     try {
       Number removerObjeto = null;
-      
+
       while(true){
         removerObjeto = stack.pop(); //retira el elemento que está en la cima de la pila.
         System.out.printf("Retirado el %s\n", removerObjeto);
@@ -2617,8 +2617,8 @@ public class StackTest {
     } catch (EmptyStackException ex){
       System.out.println("Error de tipo: " + ex);
     }
-    
-    
+
+
   }
 
   // imprimir la pila
@@ -2629,7 +2629,7 @@ public class StackTest {
       System.out.printf("La pila contiene: %s (top)\n", stack);
     }
   }
-  
+
 }
 
 
@@ -2665,24 +2665,24 @@ Las operaciones naturales en una cola, son:
 import java.util.PriorityQueue;
 
 public class QueueTest {
-  
+
   public static void main(String[] args) {
-    
+
     PriorityQueue<Double> cola = new PriorityQueue<>(); // crea la cola
-    
+
     // insertar elementos a la cola con prioridad y en orden de tamaño.
     cola.offer(1.5);
     cola.offer(2.5);
     cola.offer(5.0);
     cola.offer(4.0);
-    
+
     while(cola.size()>0){
       System.out.printf("%.1f ", cola.peek()); // mira cual es el elemento con mayor prioridad en la cola y lo imprime en consola.
       cola.poll(); // remueve elemento en orden de prioridad.
     }
-    
+
   }
-  
+
 }
 
 ```
@@ -2703,32 +2703,32 @@ import java.util.Set;
 import java.util.Collection;
 
 public class SetTest {
-  
+
   public static void main(String[] args) {
-    
+
     // crear y mostrar la lista de colores
     String[] colors = {"red", "white", "blue", "green", "gray",
                       "orange", "tan", "white", "cyan", "peach", "gray", "orange"};
     List<String> list = Arrays.asList(colors);
     System.out.printf("Lista de colores %s\n", list);
-    
-    
+
+
     // eliminar duplicados
     mostrarNoDuplicados(list);
-    
+
   }
 
   private static void mostrarNoDuplicados(List<String> list) {
     Set<String> set = new HashSet<>(list);
     System.out.print("\nColores no duplicados: ");
-    
+
     for(String elemento: set){
       System.out.printf("%s ", elemento);
     }
-    
+
     System.out.println();
   }
-  
+
 }
 
 ```
@@ -2753,28 +2753,28 @@ import java.util.Scanner;
 
 
 public class MapTest {
-  
+
   public static void main(String[] args) {
-    
+
     //Mapa creado para guardar las claves en String y los valores en Integer.
     Map<String, Integer> myMap = new HashMap<>();
-    
+
     createMap(myMap);
     displayMap(myMap);
-    
+
   }
 
   private static void createMap(Map<String, Integer> map) {
     Scanner scanner = new Scanner(System.in);
     System.out.println("Ingrese una cadena:");
     String input = scanner.nextLine();
-    
+
     // toma la cadena ingresada y guarda las palabras en un array
     String[] arrayWords = input.split(" ");
-    
+
     for(String elemento: arrayWords){
       String word = elemento.toLowerCase(); //Convierte cada palabra en Minuscúla.
-      
+
       //si en el mapa contiene la palabra
       if(map.containsKey(word)){
         int count = map.get(word);
@@ -2783,26 +2783,26 @@ public class MapTest {
         map.put(word, 1); // agrega la clave y el valor.
       } // fin if
     } // fin for
-    
+
   } // fin método createMap
 
   private static void displayMap(Map<String, Integer> map) {
-    
+
     Set<String> keys = map.keySet(); //trae todas las llaves y las guarda en un tipo Set.
-    
+
     //Ordenar las llaves
     TreeSet<String> sortedKeys = new TreeSet<>(keys);
-    
+
     System.out.println("\nEl mapa contiene:\nLlave\t\tValor");
-    
+
     //Mostrar en consola cada llave del mapa
     for(String elemento: sortedKeys){
       System.out.printf("%-10s%10s\n", elemento, map.get(elemento));
     }
-    
+
     System.out.printf("\ntamaño: %d\nEstá vacío: %b\n", map.size(), map.isEmpty());
   }
-  
+
 }
 
 
@@ -2820,14 +2820,14 @@ Ejemplo: Imprimiendo los elementos de distintos arrays con métodos sobrecargado
 
 
 public class MetodosSobreCargados {
-  
+
   public static void main(String[] args) {
-    
+
     //Crear disntitos tipos de arrays de tipo referencia
     Integer[] integerArray = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
     Double[] doubleArray = {1.0, 2.0, 3.0, 4.0, 5.0};
     Character[] characterArray = {'H', 'E', 'L', 'L', 'O', 'W', 'O', 'R', 'L', 'D'};
-    
+
     //Imprimir los arrays
     System.out.println("Array de Integer contiene:");
     printArray(integerArray);
@@ -2835,11 +2835,11 @@ public class MetodosSobreCargados {
     printArray(doubleArray);
     System.out.println("Array de Character contiene:");
     printArray(characterArray);
-    
+
   }
 
   private static void printArray(Integer[] integerArray) {
-    
+
     //mostrar contenido del array
     for(Integer elemento: integerArray){
       System.out.printf("%s ", elemento);
@@ -2862,7 +2862,7 @@ public class MetodosSobreCargados {
     }
     System.out.println();
   }
-  
+
 }
 
 
@@ -2874,7 +2874,7 @@ El método sobrecargado printArray() se puede reemplazar por uno genérico, que 
 
 	// por convención, los métodos y las clases genéricas les llaman de tipo T
   private static <T> void printArray(T[] array) {
-    
+
     //mostrar los elementos del array
     for(T elemento: array){
       System.out.printf("%s ", elemento);
@@ -2921,29 +2921,177 @@ Ejemplo: El siguiente método genérico devuelve el mayor de los tres objetos.
 public class MaximumTest {
 
   public static void main(String[] args) {
-    
+
     System.out.printf("Maxímo de %d, %d y %d es %d\n", 3, 4, 5, maximum(3, 4, 5));
-    
+
   }
-  
+
   // Determina cual de los tres objetos es más grande
   private static< T extends Comparable< T > > T maximum(T x, T y, T z) {
     T max = x; //asumimos que x es el mayor por el momento.
-    
+
     if(y.compareTo(max) > 0){
       max = y;
     }
-    
+
     if(z.compareTo(max) > 0){
       max = z;
     }
-    
+
     return max;
   }
-  
+
 }
+
+```
+
+### Clases genericas
+
+Las clases genéricas encapsulan operaciones que no son específicas de un tipo de datos concreto. En otras palabras, las clases genericas nos permiten tener tipos de objetos especificos, por ejemplo: Una pila de empleados, una pila de String, una pila de Double (sólo con tipos de referencia). Las clases genéricas se utilizan frecuentemente con colecciones como listas vinculadas, tablas hash, pilas, colas, árboles, etc. Las operaciones de agregar y quitar elementos de la colección se realizan básicamente de la misma forma, independientemente del tipo de datos que se van a almacenar.
+
+Sintaxis:
+
+```Java
+
+public Class NombreClase< T > {
+
+  // Atributos de la clase...
+  // métodos de la clase...
+
+}
+
+```
+
+El nombre de la clase va acompañado de un receptáculo, el cual, en Java se usa por convención, los siguientes receptáculos:
+
+E – Element (usado bastante por Java Collections Framework)
+K – Key (Llave, usado en mapas)
+N – Number (para números)
+T – Type (Representa un tipo, es decir, una clase)
+V – Value (representa el valor, también se usa en mapas)
+S,U,V etc. – usado para representar otros tipos.
+
+Ejemplo: Implementación de una clase Stack genérica.
+
+```java
+
+/*
+* Clase donde se construye la pila
+*/
+
+import java.util.ArrayList;
+import java.util.EmptyStackException;
+
+//import java.util.EmptyStackException;
+
+public class Stack< T > {
+
+    private ArrayList< T > elements; // Un atributo de tipo ArrayList que guarda elementos de tipo T.
+
+
+    public Stack(){ // Constructor para crear una Pila con un tamaño definido.
+        this(10);
+    }
+
+    public Stack(int capacity){ // Constructor sobrecargado
+        int initCapacity = capacity > 0 ? capacity : 10 ; // valida si el tamaño que va a tener el arraylist es mayor a cero.
+        elements = new ArrayList<>(initCapacity); // Crea el ArrayList con tamaño de 10.
+    }
+
+    // Método para agregar elementos a la Pila
+    public void push( T value ) {
+        elements.add(value);
+    } // fin método push
+
+    public T pop(){
+
+        if(elements.isEmpty()){ // si la pila está vacía
+            throw new EmptyStackException();
+        }
+
+        return elements.remove(elements.size()-1); // retira el últmo elemento de la pila.
+    } // fin método pop
+
+} // fin class Stack< T >
 
 
 ```
 
+```Java
 
+/*
+* Clase con el método main para probar la pila genérica.
+*/
+import java.util.EmptyStackException;
+
+
+public class StackTest {
+
+    public static void main(String[] args) {
+
+        double[] doubleElements = {1.1, 2.2, 3.3, 4.4, 5.5};
+        int[] integerElements = {1, 2, 3, 4, 5};
+
+        Stack< Double> doubleStack = new Stack<>(5);
+        Stack< Integer> integerStack = new Stack<>();
+
+        testPushDouble(doubleStack, doubleElements);
+        testPopDouble(doubleStack);
+
+        testPushInteger(integerStack, integerElements);
+        testPopInteger(integerStack);
+
+    } // fin del main
+
+    private static void testPushDouble(Stack<Double> doubleStack, double[] doubleElements) {
+        System.out.println("\nColocando elementos en doubleStack:");
+
+        for(double elemento: doubleElements){
+            System.out.printf("%.1f ", elemento);
+            doubleStack.push(elemento);
+        }
+    }
+
+    private static void testPopDouble(Stack<Double> doubleStack) {
+        try{
+            System.out.println("\nRetirando elementos de la pila de doubles");
+            double popValue;
+
+            while(true){
+                popValue = doubleStack.pop();
+                System.out.printf("%.1f ", popValue);
+            }
+        } catch ( EmptyStackException e){
+            System.err.println();
+            e.printStackTrace();
+        }
+    }
+
+    private static void testPushInteger(Stack<Integer> integerStack, int[] integerElements) {
+                System.out.println("\nColocando elementos en integerStack:");
+
+        for(int elemento: integerElements){
+            System.out.printf("%d ", elemento);
+            integerStack.push(elemento);
+        }
+    }
+
+    private static void testPopInteger(Stack<Integer> integerStack) {
+                try{
+            System.out.println("\nRetirando elementos de la pila de enteros");
+            int popValue;
+
+            while(true){
+                popValue = integerStack.pop();
+                System.out.printf("%d ", popValue);
+            }
+        } catch ( EmptyStackException e){
+            System.err.println();
+            e.printStackTrace();
+        }
+    }
+
+
+}
+
+```
