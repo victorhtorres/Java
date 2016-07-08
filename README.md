@@ -2965,12 +2965,14 @@ public Class NombreClase< T > {
 
 El nombre de la clase va acompañado de un receptáculo, el cual, en Java se usa por convención, los siguientes receptáculos:
 
-E – Element (usado bastante por Java Collections Framework)
-K – Key (Llave, usado en mapas)
-N – Number (para números)
-T – Type (Representa un tipo, es decir, una clase)
-V – Value (representa el valor, también se usa en mapas)
-S,U,V etc. – usado para representar otros tipos.
+- E – Element (usado bastante por Java Collections Framework)
+- K – Key (Llave, usado en mapas)
+- N – Number (para números)
+- T – Type (Representa un tipo, es decir, una clase)
+- V – Value (representa el valor, también se usa en mapas)
+- S,U,V etc. – usado para representar otros tipos.
+
+>Una clase puede tener varios tipos de datos separados por coma ( por ejemplo, MiClase< K, V > ).
 
 Ejemplo: Implementación de una clase Stack genérica.
 
