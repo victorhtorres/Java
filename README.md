@@ -541,6 +541,8 @@ i= 4	j= 8
 
 ### Estructura for each
 
+Es una versión mejorada de la estructura del `for` tradicional y sirve especialmente para recorrer colecciones de datos (Listas, Arrays, etc...).
+
 Sintaxis:
 
 ```java
@@ -562,7 +564,7 @@ Ejemplo:
     arreglo[2] = "Harry";
 
     for (String elemento : arreglo){
-      System.out.println(elemento);
+      System.out.println(elemento);	// Imprime cada elemento del arreglo.
     }
 
 ```
