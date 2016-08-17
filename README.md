@@ -2,6 +2,10 @@
 
 Fundamentos de Java
 
+## Como contribuir con el repositorio
+
+Visita [CONTRIBUTING.md](https://github.com/victorhtorres/Java/blob/master/CONTRIBUTING.md).
+
 ## Tabla de contenido
 - [Ambientes](#ambientes).
 - [Versiones](#versiones).
