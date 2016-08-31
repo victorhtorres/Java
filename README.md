@@ -89,6 +89,7 @@ Visita [CONTRIBUTING.md](https://github.com/victorhtorres/Java/blob/master/CONTR
  - [Recursividad por pila](#recursividad-por-pila).
  - [Recursividad por cola](#recursividad-por-cola).
 - [Notación Big O](#notacion-big-o).
+ - [Tiempos de ejecucion](#Tiempos-de-ejecucion).
 - [Coleccion de datos genericos](#coleccion-de-datos-genericos).
  - [Autoboxing and Auto-Unboxing](#autoboxing-and-auto-unboxing).
  - [Colecciones de interfaces y de clases](#colecciones-de-interfaces-y-de-clases).
@@ -2274,6 +2275,45 @@ public boolean validarElementoUnico(int datos[]){
 **Fuentes de notación Big O**
 - Como programar en Java, edición 9. Capítulo 19.
 - [Estructura de Datos - Análisis de Algoritmos, Complejidad](https://www.youtube.com/watch?v=BfUm9wBiu8E).
+
+
+### Tiempos de ejecucion
+
+Por medio de cálculos matemáticos simples, se puede conocer la eficiencia de un algoritmo y su tiempo computacional que se espera que consuma dicho algoritmo, escrito como una función T(n), donde `n` es el número de datos que procesará el algoritmo.
+
+>Al hallar T(n) se considerará siempre el peor de los casos en el procesamiento de datos.
+
+Para conocer el número de iteraciones que realizará el ciclo de un algoritmo, se calcula como:
+
+![Formula para hallar número de iteraciones de ciclo](images/formula-iteraciones.png)
+
+- Vfinal, es el valor mínimo para que no se cumpla la condición.
+- Vincial, es el valor inicial con que inicia el ciclo.
+- Incremento, es el valor con que incrementa el iterador en cada vuelta del ciclo.
+
+Ejemplo 1:
+
+![Ejemplo 1: calcular el número de iteraciones](images/ejemplo1-tiempo-ejecucion.png)
+
+Luego, para determinar el tiempo de ejecución del algoritmo completo, se calcula linea por linea para saber cuantas veces se ejecuta. Nota: se ignoran las llaves {} del cuerpo del código y siempre considerar el peor de los casos:
+
+Ejemplo 2:
+
+![Ejemplo 2: Calcular el tiempo de ejecución](images/ejemplo2-tiempo-ejecucion.png)
+
+Ejercicios de ejemplo:
+
+Ejercicio 1:
+
+![Ejercicio 1 sobre tiempos de ejecución](images/ejercicio1-tiempo-ejecucion.png)
+
+Ejercicio 2:
+
+![Ejercicio 2 sobre tiempos de ejecución](images/ejercicio2-tiempo-ejecucion.png)
+
+Ejercicio 3:
+
+![Ejercicio 3 sobre tiempos de ejecución](images/ejercicio3-tiempo-ejecucion.png)
 
 
 ## Coleccion de datos genericos
