@@ -2313,7 +2313,7 @@ Ejercicio 2:
 
 Ejercicio 3:
 
-![Ejercicio 3 sobre tiempos de ejecución](images/ejercicio3-tiempo-ejecucion.png)
+![Ejercicio 3 sobre tiempos de ejecución](images/ejercicio3_tiempo-ejecucion.png)
 
 
 ## Coleccion de datos genericos
