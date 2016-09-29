@@ -47,6 +47,7 @@ Visita [CONTRIBUTING.md](https://github.com/victorhtorres/Java/blob/master/CONTR
 - [Programación orientado a objetos](#programacion-orientado-a-objetos).
  - [Evolución](#evolucion).
 - [Clases](#clases).
+ - [Clase DecimalFormat](#clase-decimalformat).
 - [Objetos](#objetos).
  - [Características](#caracteristicas).
  - [Instanciar un objeto](#instanciar-un-objeto).
@@ -1032,6 +1033,28 @@ class Libro
 **Forma de una clase:**
 
 ![Forma de una clase de manera grafica](images/forma_clase.png)
+
+## Clase DecimalFormat
+
+Creando un objeto de la clase DecimalFormat, podemos darle un formato a un número con los separadores de millares o de unidades. Ejemplo:
+
+```java
+
+String valor = "1000";
+Int v = 1000000
+
+// le enviamos al constructor el patrón que deseamos seguir para separar las unidades.
+DecimalFormat formatea = new DecimalFormat("###,###.##"); 
+ 
+System.outprintln(formatea.format(valor));
+//Nos devuelve 1.000
+System.out.println(formate.format(v));
+//Nos devuelve 1.000.000
+
+```
+
+Fuente: http://www.yoelprogramador.com/puntos-decimales-y-separador-de-miles-en-java/
+Oracle: https://docs.oracle.com/javase/7/docs/api/java/text/DecimalFormat.html
 
 ## Objetos
 
