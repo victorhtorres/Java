@@ -25,6 +25,7 @@ Visita [CONTRIBUTING.md](https://github.com/victorhtorres/Java/blob/master/CONTR
  - [Operadores lógicos](#operadores-logicos).
  - [Precedencia de operadores](#precedencia-de-operadores).
 - [Promoción de datos o casting](#promocion-de-datos-o-casting).
+- [Caracteres UNICODE](#caracteres-unicode).
 - [Estructuras de decisión](#estructura-de-decision).
  - [Estructura del if](#estructura-del-if).
  - [Estructura del if-else](#estructura-del-if-else).
@@ -330,6 +331,59 @@ result = (double) a / (double)(b+c) ;
 ```
 
 >En Java no se puede convertir un tipo numérico a boolean.
+
+## Caracteres UNICODE
+
+Unicode es un estándar de codificación de caracteres diseñado para facilitar el tratamiento informático, transmisión y visualización de textos de múltiples lenguajes y disciplinas técnicas, además de textos clásicos de lenguas muertas. El término Unicode proviene de los tres objetivos perseguidos: universalidad, uniformidad y unicidad. Fuente: [wikipedia](https://es.wikipedia.org/wiki/Unicode).
+
+¿Que es UNICODE? Desde el sitio oficial: http://www.unicode.org/standard/translations/spanish.html
+
+Para evitar problemas por la codificación de caracteres (encoding), es recomendable colocar el código UNICODE de los caracteres latinos cuando programemos en Java. En la siguiente tabla se encuentran los códigos UNICODE de los caracteres latinos más usados:
+
+| Caracter | Codigo UNICODE |
+| ----- | ---- |
+| á | \u00E1 |
+| é | \u00E9 |
+| í | \u00ED |
+| ó | \u00F3 |
+| ú | \u00FA |
+| ñ | \u00F1 |
+| Á | \u00C1 |
+| É | \u00C9 |
+| Í | \u00CD |
+| Ó | \u00D3 |
+| Ú | \u00DA |
+| Ñ | \u00D1 |
+
+Ejemplo sintáxis:
+
+```java
+
+public class TestUNICODE {
+ 
+	public static void main(String[] args) {
+
+		System.out.println("\u00E1");
+		System.out.println("\u00E9");
+		System.out.println("\u00ED");
+		System.out.println("\u00F3");
+		System.out.println("\u00FA");
+		System.out.println("\u00F1");
+
+		System.out.println("\u00C1");
+		System.out.println("\u00C9");
+		System.out.println("\u00CD");
+		System.out.println("\u00D3");
+		System.out.println("\u00DA");
+		System.out.println("\u00D1");
+
+		String mensaje = "Aqu\u00ED est\u00E1 mi prueba!!!";
+		System.out.println(mensaje);        
+ 
+	}
+}
+
+```
 
 ## Estructura de decision
 
