@@ -2692,7 +2692,7 @@ public class ListTest {
 
 ### Pilas
 
-Las pilas son una estructura de datos, en la que el acceso está restringido al elemento más recientemente isertado. Se comporta en buena medida como una pila común de papeles, platos o periódicos. El último elemento añadido a la pila se coloca en la parte superior y es fácilmente accesible, mientras que resulta más difícil acceder a los elementos que han estado más tiempo en la pila. Por lo tanto, la pila es apropiada si esperamos acceder solo al elemento superior; todos los restantes elementos son innaccesibles.
+Las pilas son una estructura de datos, en la que el acceso está restringido al elemento más recientemente insertado. Se comporta en buena medida como una pila común de papeles, platos o periódicos. El último elemento añadido a la pila se coloca en la parte superior y es fácilmente accesible, mientras que resulta más difícil acceder a los elementos que han estado más tiempo en la pila. Por lo tanto, la pila es apropiada si esperamos acceder solo al elemento superior; todos los restantes elementos son innaccesibles.
 
 Las tres operaciones naturales en una pila son:
 
