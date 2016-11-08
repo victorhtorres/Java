@@ -917,6 +917,59 @@ Método:
 
 
 ```
+
+Método recursivo:
+
+```java
+// Método privado que implementa recursivamente la búsqueda binaria.
+// El vetor au DEBE estar ordenado ascendentemente !!!
+// Si el valor x está en el vector, entonces retorna su posición (ó índice)
+// en el arreglo. De lo contrario, retorna -1.
+private int busquedaBinariaRecursiva(int x, int izq, int der, int[] au) {
+
+        int mitad = (izq + der) / 2; // obtengo el indice que da la mitad de la posición del arreglo
+
+        //caso base
+        if (izq > der) {
+            return -1;
+        } else if (x < au[mitad]) { // caso recursivo
+            return busquedaBinariaRecursiva(x, izq, der - 1, au);
+        } else if (x > au[mitad]) {
+            return busquedaBinariaRecursiva(x, izq + 1, der, au);
+        } else {
+            return mitad;
+        }
+
+    }
+
+```
+
+
+Otro método de forma iterativa:
+
+```java
+
+    // El vetor v1 DEBE estar ordenado ascendentemente !!!
+    // Si el valor x está en el vector, entonces retorna su posición (ó índice)
+    // en el arreglo. De lo contrario, retorna -1.
+    public int busquedaBinaria_NO_Recursiva(double x) {
+        int[] v1 = ordenarAscendente();  // El arreglo v1 está ordenado.
+        int izq = 0, der = v1.length - 1, mitad = 0;
+        while (izq <= der) {
+            mitad = (izq + der) / 2;
+            if (x < v1[mitad]) {
+                der = mitad - 1;
+            } else if (x > v1[mitad]) {
+                izq = mitad + 1;
+            } else {
+                return mitad;
+            }
+        }
+        return -1;    // Significa que x no está en el arreglo.
+    }
+
+```
+
 En tiempos de ejecución ([Big O](#notacion-big-o)), la búsqueda binaria se comporta de manera logarítmica, O(log n), a diferencia de la búsqueda linea que sería O(n), lo que significa que, para un arreglo de mil millones de elementos, ésta es una diferencia entre un promedio de 500 millones de comparaciones para la búsqueda lineal, ¡y un máximo de sólo 30 comparaciones para la búsqueda binaria!
 
 #### Conteos
