@@ -61,7 +61,7 @@ Visita [CONTRIBUTING.md](https://github.com/victorhtorres/Java/blob/master/CONTR
  - [Método Burbuja](#metodo-burbuja).
  - [Selección](#seleccion).
  - [Inserción](#insercion).
- - QuickSort.
+ - [QuickSort](#quicksort).
  - ShellSort.
  - [MergeSort](#mergesort).
 - [Sobrecarga de métodos](#sobrecarga-de-metodos).
@@ -1592,6 +1592,106 @@ Método:
 >El algoritmo de ordenamiento por inserción también se ejecuta en un tiempo igual a O(n^2).
 
 Cada ciclo individual se ejecuta en un tiempo O(n). En notación Big O, los ciclos anidados indican que debemos multiplicar el número de comparaciones. Para cada iteración de un ciclo exterior, habrá cierto número de iteraciones en el ciclo interior. En este algoritmo, para cada O(n) iteraciones del ciclo exterior, habrá O(n) iteraciones del ciclo interior. Al multiplicar estos valores se produce un valor Big O de O(n^2).
+
+### QuickSort
+
+Basado en la técnica de divide y vencerás, que permite, en promedio, ordenar n elementos en un tiempo proporcional a O(nlogn).
+
+Pasos para realizar el algoritmo:
+1. Seleccionar el valor que está en la mitad del arreglo, como su pivote.
+2. Resituar los demás elementos de la lista a cada lado del pivote, de manera que a un lado queden todos los menores que él, y al otro los mayores. Los elementos iguales al pivote pueden ser colocados tanto a su derecha como a su izquierda, dependiendo de la implementación deseada. En este momento, el pivote ocupa exactamente el lugar que le corresponderá en la lista ordenada.
+3. La lista queda separada en dos sublistas, una formada por los elementos a la izquierda del pivote, y otra por los elementos a su derecha.
+4. Repetir este proceso de forma recursiva para cada sublista mientras éstas contengan más de un elemento. Una vez terminado este proceso todos los elementos estarán ordenados.
+
+
+Implementación para un orden ascendente:
+
+```java
+// Método que recibe una lista enlazada de enteros y los ordena 
+// ascendentemente, usando el algoritmo de ordenamiento QuickSort
+// (Ordenamiento Rápido).
+public static void ordenamientoQS_Ascendente(List<Integer> elementos) {
+        if(elementos.size() > 1) {
+            // Crea 3 listas enlazadas vacías:
+            List<Integer> izquierda = new LinkedList<>();
+            List<Integer> iguales = new LinkedList<>();
+            List<Integer> derecha = new LinkedList<>();
+            // Que el elemento ubicado en la mitad sea el pivote:
+            Integer pivote = elementos.get(elementos.size()/2);
+            for(Integer i: elementos) {
+                if(i < pivote) {
+                    izquierda.add(i);
+                }
+                else if(i > pivote) {
+                    derecha.add(i);
+                }
+                else {
+                    iguales.add(i);
+                }
+            }   // Fin for
+            
+            ordenamientoQS_Ascendente(izquierda);    // Llamada recursiva.
+            ordenamientoQS_Ascendente(derecha);    // Llamada recursiva.
+            
+            elementos.clear();  // Removes all of the elements from this list.
+            
+            // Appends all of the elements in the specified collection to the
+            // end of this list:
+            elementos.addAll(izquierda); 
+            elementos.addAll(iguales);
+            elementos.addAll(derecha);
+            
+        }   // Fin if
+        
+    }   // Fin método ordenamientoQS_Ascendente(...)
+
+```
+
+Implementación para un orden descendente:
+
+```java
+
+    // Método que recibe una lista enlazada de enteros y los ordena 
+    // descendentemente, usando el algoritmo de ordenamiento QuickSort
+    // (Ordenamiento Rápido).
+    public static void ordenamientoQS_Descendente(List<Integer> elementos) {
+        if(elementos.size() > 1) {
+            // Crea 3 listas enlazadas vacías:
+            List<Integer> izquierda = new LinkedList<>();
+            List<Integer> iguales = new LinkedList<>();
+            List<Integer> derecha = new LinkedList<>();
+            // Que el elemento ubicado en la mitad sea el pivote:
+            Integer pivote = elementos.get(elementos.size()/2);
+            for(Integer i: elementos) {
+                if(i > pivote) {
+                    izquierda.add(i);
+                }
+                else if(i < pivote) {
+                    derecha.add(i);
+                }
+                else {
+                    iguales.add(i);
+                }
+            }   // Fin for
+            
+            ordenamientoQS_Descendente(izquierda);    // Llamada recursiva.
+            ordenamientoQS_Descendente(derecha);    // Llamada recursiva.
+            
+            elementos.clear();  // Removes all of the elements from this list.
+                            // The list will be empty after this call returns.
+            
+            // Appends all of the elements in the specified collection to the
+            // end of this list:
+            elementos.addAll(izquierda); 
+            elementos.addAll(iguales);
+            elementos.addAll(derecha);
+            
+        }   // Fin if
+        
+    }   // Fin método ordenamientoQS_Descendente(...)
+
+```
+
 
 ### MergeSort
 
