@@ -6,7 +6,7 @@ Fundamentos de Java
 
 Visita [CONTRIBUTING.md](https://github.com/victorhtorres/Java/blob/master/CONTRIBUTING.md).
 
-## Tabla de contenido
+## Contenido
 - [Ambientes](#ambientes).
 - [Versiones](#versiones).
 - [Instalación JDK y Netbeans](#instalacion-jdk-y-netbeans).
@@ -106,6 +106,14 @@ Visita [CONTRIBUTING.md](https://github.com/victorhtorres/Java/blob/master/CONTR
   - [Interfaz Comparable](#interfaz-comparable).
   - [Clases genericas](#clases-genericas).
   - [Wildcards](#wildcards).
+- [Lambda y flujos en Java SE 8](#Lambda-y-flujos-en-Java-SE-8).
+  - [Expresiones lambda](#Expresiones-lambda).
+  - [Interfaces funcionales](#Interfaces-funcionales).
+  - [Flujos](#Flujos).
+    - [Operaciones intermedias de flujo con y sin estado](#Operaciones-intermedias-de-flujo-con-y-sin-estado).
+    - [Operaciones intermedias de asignación](#Operaciones-intermedias-de-asignación).
+    - [Métodos de referencias](#Métodos-de-referencias).
+  - [Referencias](#Referencias).
 
 ## Ambientes
 
@@ -3442,21 +3450,21 @@ Ejemplo: Un método que recibe como parámetro diferentes tipos de arreglo (Inte
 Number [] numbers =  {1, 2, 3, 4, 5};
 ArrayList< Number > numberList = new ArrayList<>();
 
-for (Number elemento: numberList) {
+for (Number elemento: numbers) {
   numberList.add(elemento); // agrega cada número del arreglo en el ArrayList.
 }
 
 Integer [] integers =  {1, 2, 3, 4, 5};
 ArrayList< Integer > intergerList = new ArrayList<>();
 
-for (Integer elemento: intergerList) {
+for (Integer elemento: integers) {
   intergerList.add(elemento); // agrega cada número del arreglo en el ArrayList.
 }
 
 Double [] doubles =  {1.1, 2.1, 3.1, 4.1, 5.1};
 ArrayList< Double > doubleList = new ArrayList<>();
 
-for (Double elemento: doubleList) {
+for (Double elemento: doubles) {
   doubleList.add(elemento); // agrega cada número del arreglo en el ArrayList.
 }
 
@@ -3476,3 +3484,291 @@ public static double suma(ArrayList< ? extends Number > lista) {
 }
 
 ```
+
+[Leer más sobre Wildcards en Java](https://www.geeksforgeeks.org/wildcards-in-java/).
+
+## Lambda y flujos en Java SE 8
+
+### Expresiones lambda
+
+La programación funcional, es un paradigma de programación, el cual fue incluido a partir de la versión 8 de Java y se logra con las expresiones lambda. Una expresión lambda representa a un método anónimo; es decir, una notación abreviada para implementar una [interfaz funcional](#Interfaces-funcionales) de Java, similar a una clase interna anónima. El tipo de una expresión lambda es el tipo de la interfaz funcional que implementa esa expresión lambda. Las expresiones lambda pueden usarse en cualquier parte en donde se esperan interfaces funcionales.
+
+**Sintaxis**
+
+`(listaParámetros) -> {instrucciones}`
+
+Ejemplo:
+
+```java
+
+// Recibe dos enteros y retorna la suma de ellos:
+(int x, int y) -> {return x + y;}
+
+```
+
+Se pueden omitir los tipos de datos en los parámetros:
+
+```java
+
+(x, y) -> {return x + y;}
+
+```
+
+Cuando el cuerpo solo tiene una expresión, se puede omitir las llaves y la palabra clave return:
+
+```java
+
+(int x, int y) -> x + y
+
+```
+
+Cuando es un sólo parámetros, se puede omitir los paréntesis:
+
+```java
+
+valor -> System.out.printf("%d ", valor)
+
+```
+
+Cuando no hay parámetros:
+
+```java
+
+() -> System.out.println("Hello world from Lambda!")
+
+```
+### Interfaces funcionales
+
+En Java SE 8, implementaron las interfaces funcionales. Son las que solo contiene un método abstracto y puede tener uno o más métodos estáticos o default. Las interfaces funcionales son utilizadas en la programación funcional, para definir expresiones lambda que implemente el método abstracto de dicha interfaz funcional. Se pueden identificar por la anotación `@FunctionalInterface`, aunque no es obligatorio ponerlo porque, si la interfaz solo tiene un método abstracto, automáticamente será una interfaz funcional. Por ejemplo:
+
+```java
+
+// Se define la interfaz funcional con un método abstracto y otro método por default:
+@FunctionalInterface
+public interface IStrategy {
+    
+    public String sayHelloTo(String name);
+    
+    public default String sayHelloWord(){
+        return "Hello word";
+    }
+
+}
+
+```
+
+```java
+
+// Se ejecuta una prueba de una expresión lambda que implemente el método abstracto de la interfaz funcional:
+public class Main {
+    
+    public static void main(String[] args) {
+        IStrategy strategy = (name) -> "Hello " + name;
+        
+        System.out.println(strategy.sayHelloTo("John Doe"));
+        System.out.println(strategy.sayHelloWord());
+    }
+
+}
+```
+6 Interfaces funcionales básicas del paquete java.util.function:
+
+**BinaryOperator<T>**
+
+Contiene el método apply que recibe dos argumentos, realiza una operación sobre ellos (como un cálculo) y devuelve un valor de tipo T. Ejemplo:
+
+```java
+
+BinaryOperator<Integer> binaryOperator = (a, b) -> a + b;
+System.out.println(binaryOperator.apply(5, 5));
+
+// 10
+
+```
+**Consumer<T>**
+
+Contiene el método accept que recibe un argumento T y devuelve void. Realiza una tarea con su argumento T, como mostrar el objeto en pantalla, invocar a un método del objeto, etc. Ejemplo:
+
+```java
+
+Consumer<String> consumer = valor -> System.out.println(valor);
+consumer.accept("Hello world");
+
+// Hello world
+
+```
+
+**Function<T,R>**
+
+Contiene el método apply que recibe un argumento T y devuelve el resultado de ese método. Ejemplo:
+
+```java
+
+Function<String, String> myFunction = valor -> "Hello " + valor;
+System.out.println(myFunction.apply("John Doe"));
+
+// Hello John Doe
+
+```    
+**Predicate<T>**
+
+Contiene el método test que recibe un argumento T y devuelve un boolean. Ejemplo:
+
+```java
+
+Predicate<Integer> myPredicate = valor -> valor % 2 == 0?true:false;
+if (myPredicate.test(4)) {
+  System.out.println("Es par.");
+}else {
+  System.out.println("Es impar.");
+}
+
+// Es par.
+
+```
+
+**Supplier<T>**
+
+Contiene el método get que no recibe argumentos y produce un valor de tipo T. A menudo se usa para crear un objeto colección en donde se colocan los resultados de la operación de un flujo.
+
+```java
+
+Integer[] arrNumbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+Supplier<List<Integer>> supplier = () -> Arrays.asList(arrNumbers);
+supplier.get().stream().forEach(System.out::print);
+
+// 12345678910
+
+```
+**UnaryOperator<T>**  
+
+Contiene el método get que no recibe argumentos y devuelve un valor de tipo T.
+
+### Flujos
+
+Java SE 8 introduce el concepto de flujos. Los flujos son objetos de clases que implementan a la interfaz Stream (del paquete java.util.stream) o una de las interfaces de flujo especializadas para procesar colecciones de valores int, long o double. En conjunto con las lambdas, los flujos le permiten realizar tareas sobre colecciones de elementos, a menudo de un objeto arreglo o colección.
+
+**Técnicas de iteración**
+
+Como se piensa en POO en comparación con la programación funcional:
+- Iteración externa: Para una tarea en particular, se debe definir como se va a realizar. Esto es común en el paradigma de POO.
+- Iteración interna. Para una tarea en particular, se utilizan bibliotecas de Java SE 8, el cual le decimos que queremos, más no como lo debe hacer, ya que el cómo se encargará la biblioteca. Esto funciona así en la programación funcional.
+
+**Canalización de flujos**
+
+Por medio de una colección de datos, se puede originar un origen de datos que forme una canalización de flujos. Dicha canalización, permite aplicar operaciones intermedias y terminales sobre el origen de datos por medio del encadenamiento de llamadas a métodos. Una vez producido el flujo, no puede reutilizarse, ya que no queda en memoria como una colección de datos definido en una instancia.
+
+**Operaciones intermedias y terminal**
+
+Una **operación intermedia** especifica las tareas a realizar sobre los elementos del flujo y siempre produce un nuevo flujo. Las operaciones intermedias son perezosas; es decir, no se ejecutan sino hasta que se invoque a una operación terminal.
+
+Una **operación terminal** inicia el procesamiento de las operaciones intermedias de una canalización de flujo y produce un resultado. Las operaciones terminales son ansiosas, ya que realizan la operación solicitada cuando se les invoca.
+
+![Operaciones intermedias y terminales en Java 8](./images/operaciones_intermedias_terminales_java_8.png)
+
+### Operaciones intermedias de flujo con y sin estado
+
+Sin estado: No requiere información de los otros flujos para satisfacer un predicado. Por ejemplo, el método filter es una operación intermedia de flujo sin estado.
+
+Con estado: Requiere información de todos los flujos para ser ejecutado. Por ejemplo, el método sorted es una operación intermedia con estado, porque requiere información sobre todos los demás flujos para poder ordenarlos.
+
+### Operaciones intermedias de asignación
+
+Permite modificar el valor de los datos del flujo. Es una operación intermedia sin estado. Por ejemplo, el método map, recibe cada objeto del flujo y podría cambiar el valor de cada objeto procesado.
+
+**Ejemplos de operaciones intermedias y terminales con la interfaz IntStream**
+
+```java
+
+import java.util.stream.IntStream;
+
+public class OperacionesIntStream {
+	public static void main(String[] args) {
+
+		int[] valores = { 3, 10, 6, 1, 4, 8, 2, 5, 9, 7 };
+
+		// muestra los valores originales
+		System.out.print("Valores originales: ");
+		IntStream.of(valores).forEach(valor -> System.out.printf("%d ", valor));
+		System.out.println();
+
+		// cuenta, min, max, suma y promedio de los valores
+		System.out.printf("%nCuenta: %d%n", IntStream.of(valores).count());
+		System.out.printf("Min: %d%n", IntStream.of(valores).min().getAsInt());
+		System.out.printf("Max: %d%n", IntStream.of(valores).max().getAsInt());
+		System.out.printf("Suma: %d%n", IntStream.of(valores).sum());
+		System.out.printf("Promedio: %.2f%n", IntStream.of(valores).average().getAsDouble());
+
+		// suma de valores con el método reduce
+		System.out.printf("%nSuma mediante el metodo reduce: %d%n", IntStream.of(valores).reduce(0, (x, y) -> x + y));
+
+		// suma de cuadrados de los valores con el método reduce
+		System.out.printf("Suma de cuadrados mediante el metodo reduce: %d%n",
+				IntStream.of(valores).reduce(0, (x, y) -> x + y * y));
+
+		// producto de los valores con el método reduce
+		System.out.printf("Producto mediante el metodo reduce: %d%n", IntStream.of(valores).reduce(1, (x, y) -> x * y));
+
+		// valores pares mostrados en orden
+		System.out.printf("%nValores pares mostrados en orden: ");
+		IntStream.of(valores).filter(valor -> valor % 2 == 0)
+        .sorted()
+				.forEach(valor -> System.out.printf("%d ", valor));
+		System.out.println();
+
+		// valores impares multiplicados por 10 y mostrados en orden
+		System.out.printf("Valores impares multiplicados por 10 y mostrados en orden: ");
+		IntStream.of(valores).filter(valor -> valor % 2 != 0)
+        .map(valor -> valor * 10)
+        .sorted()
+				.forEach(valor -> System.out.printf("%d ", valor));
+		System.out.println();
+
+		// suma el rango de enteros del 1 al 10, exclusivo
+		System.out.printf("%nSuma de enteros del 1 al 9: %d%n", IntStream.range(1, 10).sum());
+
+		// suma el rango de enteros del 1 al 10, inclusivo
+		System.out.printf("Suma de enteros del 1 al 10: %d%n", IntStream.rangeClosed(1, 10).sum());
+
+    Integer[] valoresRef = { 3, 10, 6, 1, 4, 8, 2, 5, 9, 7 };  
+		
+		// Genera otra colección de datos de números pares ordenados:
+		List<Integer> pares = Arrays.stream(valoresRef)
+						.filter(valor -> valor % 2 == 0)
+						.sorted()
+						.collect(Collectors.toList());
+
+	}
+} // fin de la clase OperacionesIntStream
+
+```
+**Generación de objeto Stream con la clase Array**
+
+El método stream de la clase Array puede usarse para crear un objeto Stream a partir de un arreglo de objetos. Por ejemplo:
+
+```java
+
+Integer[] valoresObj = { 3, 10, 6, 1, 4, 8, 2, 5, 9, 7 };  
+		
+// Genera otra colección de datos de números pares ordenados:
+List<Integer> pares = Arrays.stream(valoresObj)
+						                .filter(valor -> valor % 2 == 0)
+						                .sorted()
+						                .collect(Collectors.toList());
+
+
+```
+### Métodos de referencias
+
+Los métodos de referencia, es una anotación abreviada de escribir expresiones lambda, para dar mayor claridad en casos donde dicha expresión hace únicamente llamado a un método. A continuación, los tipos de referencia a métodos:
+
+| Expresión lambda| Sentencia abreviada | Tipo de método de referencia |
+| ----- | ---- | ---- |
+| (String s) -> {return s.toUpperCase();} | String::toUpperCase | Referencia a método para un **método de instancia de una clase**. Crea una lambda de un parámetro que invoca al método de instancia con el argumento de la lambda y devuelve el resultado del método. |
+| valor -> System.out.println(valor) | System.out::println | Referencia a método para un **método de instancia que debe invocarse sobre un objeto específico**. Crea una lambda de un parámetro que invoca al método de instancia sobre el objeto especificado (pasa el argumento de la lambda al método de instancia) y devuelve el resultado del método. |
+| valor -> Math.sqrt(valor) | Math::sqrt | Referencia a método para un **método static de una clase**. Crea una lambda de un parámetro en donde el argumento de la lambda se pasa al método static especificado y la lambda devuelve el resultado del método. |
+| () -> new Person() | Person::new | **Referencia a un constructor**. Crea una lambda que invoca el constructor sin argumentos de la clase especificada para crear e inicializar un nuevo objeto de esa clase. |
+
+## Referencias
+
+- Libro: Como programar en Java ed.10 - Deitel.
