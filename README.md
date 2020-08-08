@@ -3549,8 +3549,8 @@ public interface IStrategy {
     
     public String sayHelloTo(String name);
     
-    public default String sayHelloWord(){
-        return "Hello word";
+    public default String sayHelloWorld(){
+        return "Hello world";
     }
 
 }
